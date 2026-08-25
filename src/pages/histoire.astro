@@ -54,28 +54,31 @@ const base = import.meta.env.BASE_URL;
     <a href={`${base}`} class="mt-6 inline-flex px-4 py-2 rounded-full bg-white border text-sm">← Explorer les départements</a>
   </section>
 
-  <script is:inline define:vars={{ timeline }}></script>
   <script>
     import { Chart, registerables } from "chart.js";
     Chart.register(...registerables);
-    const tl = timeline;
-    const ctx = document.getElementById('histChart');
-    if(ctx){
-      const senatCumul = tl.map(t=> t.senatReel ? t.senatReel.pctCumul : null);
-      const senatInterdit = tl.map(t=> t.senatReel ? t.senatReel.pctInterdit : null);
-      new Chart(ctx, {
-        type:'line',
-        data:{
-          labels: tl.map(t=>t.year),
-          datasets:[
-            { label:'% cumul large (est. nat.)', data: tl.map(t=>t.pctCumul), borderColor:'#0f2a44', backgroundColor:'rgba(15,42,68,0.07)', tension:0.35, fill:false, pointRadius:4, borderDash: [4,3] },
-            { label:'% interdit 2014 (est.)', data: tl.map(t=>t.pctInterdit), borderColor:'#f2c744', backgroundColor:'rgba(242,199,68,0.15)', tension:0.35, fill:false, pointRadius:3, borderDash: [4,3] },
-            { label:'% cumul Sénat réel', data: senatCumul, borderColor:'#059669', backgroundColor:'rgba(5,150,105,0.08)', tension:0.35, fill:true, pointRadius:4, spanGaps:true },
-            { label:'% exec Sénat réel', data: senatInterdit, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,0.08)', tension:0.35, fill:false, pointRadius:3, spanGaps:true }
-          ]
-        },
-        options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ boxWidth:12, font:{size:10} } } }, scales:{ x:{ grid:{ display:false } }, y:{ beginAtZero:true, max:80, ticks:{ callback:v=>v+'%' } } } }
-      });
-    }
+    const base = import.meta.env.BASE_URL;
+    fetch(base + 'data/timeline.json')
+      .then(r=> r.json())
+      .then(tl=>{
+        const ctx = document.getElementById('histChart');
+        if(!ctx) return;
+        const senatCumul = tl.map(t=> t.senatReel ? t.senatReel.pctCumul : null);
+        const senatInterdit = tl.map(t=> t.senatReel ? t.senatReel.pctInterdit : null);
+        new Chart(ctx, {
+          type:'line',
+          data:{
+            labels: tl.map(t=>t.year),
+            datasets:[
+              { label:'% cumul large (est. nat.)', data: tl.map(t=>t.pctCumul), borderColor:'#0f2a44', backgroundColor:'rgba(15,42,68,0.07)', tension:0.35, fill:false, pointRadius:4, borderDash: [4,3] },
+              { label:'% interdit 2014 (est.)', data: tl.map(t=>t.pctInterdit), borderColor:'#f2c744', backgroundColor:'rgba(242,199,68,0.15)', tension:0.35, fill:false, pointRadius:3, borderDash: [4,3] },
+              { label:'% cumul Sénat réel', data: senatCumul, borderColor:'#059669', backgroundColor:'rgba(5,150,105,0.08)', tension:0.35, fill:true, pointRadius:4, spanGaps:true },
+              { label:'% exec Sénat réel', data: senatInterdit, borderColor:'#10b981', backgroundColor:'rgba(16,185,129,0.08)', tension:0.35, fill:false, pointRadius:3, spanGaps:true }
+            ]
+          },
+          options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ boxWidth:12, font:{size:10} } } }, scales:{ x:{ grid:{ display:false } }, y:{ beginAtZero:true, max:80, ticks:{ callback:v=>v+'%' } } } }
+        });
+      })
+      .catch(e=> console.error('Failed to load timeline', e));
   </script>
 </Layout>

@@ -271,6 +271,10 @@ const lowCumul = [...byDept].filter(d=>!d.kAnonyme).sort((a,b)=>a.pctCumulLarge 
     document.getElementById('filter2014').addEventListener('change', e=>{
       window.dispatchEvent(new CustomEvent('cumulo:filter', {detail:{interditOnly: e.target.checked}}));
     });
+    // Expose for module script (map/chart) to avoid define:vars large payload
+    window.byDeptData = byDept;
+    window.timelineData = timeline;
+    window.baseUrl = base;
   </script>
 
   <!-- Leaflet + Chart.js islands (progressive enhancement) -->
@@ -279,9 +283,9 @@ const lowCumul = [...byDept].filter(d=>!d.kAnonyme).sort((a,b)=>a.pctCumulLarge 
     import { Chart, registerables } from "chart.js";
     Chart.register(...registerables);
 
-    // Data injected
-    const byDeptData = byDept;
-    const timelineData = timeline;
+    const base = window.baseUrl || import.meta.env.BASE_URL;
+    const byDeptData = window.byDeptData || [];
+    const timelineData = window.timelineData || [];
 
     // Map — vraie choroplèthe GeoJSON (96 départements métropole) + cercles pour DOM
     const map = L.map('map', { zoomControl: false, attributionControl: true }).setView([46.6, 2.5], 5.5);
