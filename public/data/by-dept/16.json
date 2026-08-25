@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "16",
+    "libelle": "Charente",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4939,
+    "totalMandats": 5712,
+    "avgMandats": 1.156509414861308,
+    "pctCumulLarge": 11.2,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 555,
+    "effectifInterdit": 3,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4915,
+      "epci": 390,
+      "mai": 355,
+      "cd": 38,
+      "cr": 9,
+      "sen": 2,
+      "dep": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -2.4,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=16"
+  }
+}

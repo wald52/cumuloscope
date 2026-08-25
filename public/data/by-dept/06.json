@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "06",
+    "libelle": "Alpes-Maritimes",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3035,
+    "totalMandats": 3751,
+    "avgMandats": 1.2359143327841846,
+    "pctCumulLarge": 16.4,
+    "pctInterdit2014": 0.4,
+    "effectifCumul": 499,
+    "effectifInterdit": 12,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3006,
+      "epci": 487,
+      "mai": 163,
+      "cr": 27,
+      "cd": 54,
+      "dep": 9,
+      "sen": 5
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 2.8,
+      "ecartInterdit": 0.3
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=06"
+  }
+}

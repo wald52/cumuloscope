@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import fs from "node:fs";
+import path from "node:path";
+const timeline = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/timeline.json"), "utf-8"));
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Histoire 1958–2026 — Cumuloscope" description="Frise du cumul des mandats sous la Ve République: lois 1985, 2000, 2014, application 2017.">
+  <section class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-extrabold text-cumulo-blue">1958 → 2026 : 68 ans de cumul</h1>
+    <p class="mt-2 text-slate-600">De l'illimité à l'interdit parlementaire+exécutif. Comprendre la loi, pas juger les personnes.</p>
+
+    <div class="mt-6 bg-white rounded-2xl border border-cumulo-border p-4">
+      <canvas id="histChart" height="220"></canvas>
+    </div>
+
+    <div class="mt-6 space-y-3">
+      {timeline.map((t,i) => (
+        <div class={`flex gap-3 p-4 rounded-2xl border ${t.year===2017 ? 'bg-amber-50 border-amber-200' : t.year===2026 ? 'bg-emerald-50 border-emerald-200' : 'bg-white border-slate-200'}`}>
+          <div class="w-16 shrink-0 text-center">
+            <p class="text-lg font-extrabold text-cumulo-blue">{t.year}</p>
+            <p class="text-[10px] leading-tight text-slate-500">{t.couverture}</p>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-slate-900 text-white">{t.pctCumul}% cumul large</span>
+              <span class="px-2 py-1 rounded-full bg-cumulo-accent text-slate-900">{t.pctInterdit}% interdit 2014</span>
+              {t.note && <span class="px-2 py-1 rounded-full bg-white border">{t.note}</span>}
+            </div>
+            {t.year===1958 && <p class="mt-2 text-sm">1958 Constitution: aucun plafond. Le député-maire devient la norme, la France fait figure d'exception en Europe.</p>}
+            {t.year===1985 && <p class="mt-2 text-sm">Lois organiques 30/12/1985: plafond 2 mandats, 1 seul exécutif local. Premier coup de frein.</p>}
+            {t.year===2000 && <p class="mt-2 text-sm">Loi 05/04/2000 (Jospin): incompatibilités renforcées, déclaration obligatoire.</p>}
+            {t.year===2012 && <p class="mt-2 text-sm">Pic documenté: 82% députés / 77% sénateurs cumulent (Vie Publique). Pression citoyenne → commission Jospin.</p>}
+            {t.year===2014 && <p class="mt-2 text-sm">Lois 14/02/2014 (LO 2014-125 & 126) votées sous Hollande: interdisent député/sénateur + exécutif local, applicable au prochain renouvellement après 31/03/2017.</p>}
+            {t.year===2017 && <p class="mt-2 text-sm"><strong>Rupture:</strong> juin 2017 législatives + octobre sénatoriales: 38% députés doivent quitter leur exécutif. Le taux chute de 55% → 38%.</p>}
+            {t.year===2026 && <p class="mt-2 text-sm"><strong>Aujourd'hui (RNE 11/08/2026):</strong> 13.5% cumul large subsiste (souvent municipal+interco), mais 0.1% seulement interdit parlementaire+exécutif — résiduel (démissions en cours, DOM, statut particulier).</p>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-6 p-4 rounded-2xl bg-cumulo-blue text-white text-sm">
+      <p class="font-semibold">Ce qu'on ne sait pas encore</p>
+      <p class="mt-1 text-white/80">1958–1996 = archives AN non structurées. Cumuloscope affiche “couverture partielle” et cherche des contributeurs pour OCR JORF. Tu as des données ? <a href={`${base}methodologie/`} class="underline">Voir méthodologie</a>.</p>
+    </div>
+
+    <a href={`${base}`} class="mt-6 inline-flex px-4 py-2 rounded-full bg-white border text-sm">← Explorer les départements</a>
+  </section>
+
+  <script>
+    import { Chart, registerables } from "chart.js";
+    Chart.register(...registerables);
+    const tl = timeline;
+    const ctx = document.getElementById('histChart');
+    if(ctx){
+      new Chart(ctx, {
+        type:'line',
+        data:{
+          labels: tl.map(t=>t.year),
+          datasets:[
+            { label:'% cumul large', data: tl.map(t=>t.pctCumul), borderColor:'#0f2a44', backgroundColor:'rgba(15,42,68,0.07)', tension:0.35, fill:true, pointRadius:4 },
+            { label:'% interdit 2014', data: tl.map(t=>t.pctInterdit), borderColor:'#f2c744', backgroundColor:'rgba(242,199,68,0.15)', tension:0.35, fill:true, pointRadius:4 }
+          ]
+        },
+        options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ boxWidth:12 } } }, scales:{ x:{ grid:{ display:false } }, y:{ beginAtZero:true, max:80, ticks:{ callback:v=>v+'%' } } } }
+      });
+    }
+  </script>
+  <script is:inline define:vars={{ timeline }}></script>
+</Layout>

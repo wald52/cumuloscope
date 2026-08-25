@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import fs from "node:fs";
+import path from "node:path";
+const quiz = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/quiz.json"), "utf-8"));
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Quiz — Cumuloscope" description="Quiz pédagogique 3 questions/jour sur le cumul des mandats. Aucun nom, que du droit.">
+  <section class="max-w-2xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-2xl border border-cumulo-border p-6">
+      <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-extrabold text-cumulo-blue">Quiz du jour</h1>
+        <span id="quiz-date" class="text-xs px-2 py-1 rounded-full bg-slate-100"></span>
+      </div>
+      <p class="text-sm text-slate-600">3 questions, 2 minutes, 0 nom. Apprenez la loi 2014 en jouant.</p>
+
+      <div id="quiz-app" class="mt-4 space-y-4">
+        <!-- injected by JS -->
+      </div>
+
+      <div id="quiz-result" class="hidden mt-4 p-4 rounded-2xl border">
+        <p id="quiz-score" class="font-bold"></p>
+        <p id="quiz-msg" class="text-sm mt-1"></p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <button id="quiz-share" class="px-4 py-2 rounded-full bg-cumulo-blue text-white text-sm">Partager mon score (anonyme)</button>
+          <button id="quiz-retry" class="px-4 py-2 rounded-full border text-sm">Rejouer</button>
+          <a href={`${base}`} class="px-4 py-2 rounded-full border text-sm">Explorer mon département</a>
+        </div>
+        <p class="mt-2 text-xs text-slate-500">Badges en localStorage. Pas de serveur, pas de tracking.</p>
+      </div>
+
+      <div class="mt-6 flex items-center justify-between text-xs">
+        <div>Streak: <strong id="streak">0</strong> jour(s) • Badges: <strong id="badges">0</strong>/6</div>
+        <button id="reset" class="underline text-slate-500">Réinitialiser</button>
+      </div>
+    </div>
+
+    <div class="mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm">
+      <p class="font-semibold">Badges à débloquer</p>
+      <ul class="mt-1 grid grid-cols-2 gap-1 text-xs">
+        <li id="b-curieux">◯ Curieux (1 quiz)</li>
+        <li id="b-legiste">◯ Légiste (5 bonnes réponses loi 2014)</li>
+        <li id="b-cartographe">◯ Cartographe (3 depts explorés)</li>
+        <li id="b-chronologue">◯ Chronologue (histoire vue)</li>
+        <li id="b-explorateur">◯ Explorateur local (défi postal)</li>
+        <li id="b-pedagogue">◯ Pédagogue (partage)</li>
+      </ul>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ quiz, base }}>
+    const dateStr = new Date().toISOString().slice(0,10);
+    document.getElementById('quiz-date').textContent = dateStr;
+
+    // deterministic daily pick 3
+    function pickDaily(qs, date){
+      let h=0; for(let i=0;i<date.length;i++) h=(h*31+date.charCodeAt(i))>>>0;
+      const out=[]; for(let i=0;i<3;i++) out.push(qs[(h+i*7)%qs.length]); return out;
+    }
+    const daily = pickDaily(quiz, dateStr);
+
+    const app = document.getElementById('quiz-app');
+    const resultBox = document.getElementById('quiz-result');
+    const scoreEl = document.getElementById('quiz-score');
+    const msgEl = document.getElementById('quiz-msg');
+
+    function render(){
+      app.innerHTML='';
+      daily.forEach((q, idx)=>{
+        const div = document.createElement('div');
+        div.className='border rounded-2xl p-3';
+        div.innerHTML = `<p class="font-semibold text-sm">${idx+1}. ${q.question}</p>` +
+          q.reponses.map((r,i)=>`<label class="flex items-start gap-2 mt-2 text-sm cursor-pointer"><input type="radio" name="q${idx}" value="${i}" class="mt-1"> <span>${r}</span></label>`).join('') +
+          `<div id="exp${idx}" class="hidden mt-2 p-2 rounded-xl text-xs"></div>`;
+        app.appendChild(div);
+      });
+      const btn = document.createElement('button');
+      btn.textContent='Valider →';
+      btn.className='w-full mt-2 bg-cumulo-blue text-white rounded-xl py-2.5 font-semibold';
+      btn.onclick = validate;
+      app.appendChild(btn);
+      resultBox.classList.add('hidden');
+    }
+
+    function validate(){
+      let score=0;
+      let details=[];
+      daily.forEach((q, idx)=>{
+        const sel = document.querySelector(`input[name="q${idx}"]:checked`);
+        const exp = document.getElementById(`exp${idx}`);
+        if(!sel){ exp.className='mt-2 p-2 rounded-xl text-xs bg-slate-100 border'; exp.textContent='Pas de réponse.'; exp.classList.remove('hidden'); return; }
+        const val = parseInt(sel.value,10);
+        const ok = val===q.bonne;
+        if(ok) score++;
+        exp.className = ok ? 'mt-2 p-2 rounded-xl text-xs bg-emerald-50 border border-emerald-200 text-emerald-900' : 'mt-2 p-2 rounded-xl text-xs bg-red-50 border border-red-200 text-red-900';
+        exp.innerHTML = (ok?'✅ ':'❌ ') + q.explication + ` <a href="https://www.legifrance.gouv.fr" target="_blank" class="underline">(${q.source})</a>`;
+        exp.classList.remove('hidden');
+      });
+      scoreEl.textContent = `Score: ${score}/3`;
+      msgEl.textContent = score===3 ? 'Parfait ! Vous maîtrisez la loi 2014.' : score===2 ? 'Bien joué, 1 détail à revoir.' : 'À revoir — refaites le quiz demain pour le streak.';
+      resultBox.classList.remove('hidden');
+      resultBox.className = score>=2 ? 'mt-4 p-4 rounded-2xl border bg-emerald-50 border-emerald-200' : 'mt-4 p-4 rounded-2xl border bg-amber-50 border-amber-200';
+
+      // streak + badges
+      try{
+        const today = new Date().toISOString().slice(0,10);
+        const streakRaw = JSON.parse(localStorage.getItem('cumuloscope:streak')||'{"count":0,"last":null}');
+        if(streakRaw.last !== today){
+          const yesterday = new Date(Date.now()-86400000).toISOString().slice(0,10);
+          streakRaw.count = (streakRaw.last===yesterday) ? (streakRaw.count+1) : 1;
+          streakRaw.last = today;
+          localStorage.setItem('cumuloscope:streak', JSON.stringify(streakRaw));
+        }
+        const badges = new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]'));
+        badges.add('curieux');
+        if(score>=2) badges.add('legiste');
+        localStorage.setItem('cumuloscope:badges', JSON.stringify([...badges]));
+        localStorage.setItem(`cumuloscope:quiz:${today}`, JSON.stringify({score, date:today}));
+        updateBadges();
+      }catch{}
+    }
+
+    function updateBadges(){
+      try{
+        const badges = new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]'));
+        document.getElementById('badges').textContent = badges.size;
+        const streak = JSON.parse(localStorage.getItem('cumuloscope:streak')||'{"count":0}');
+        document.getElementById('streak').textContent = streak.count||0;
+        const map = {curieux:'b-curieux', legiste:'b-legiste', cartographe:'b-cartographe', chronologue:'b-chronologue', 'explorateur':'b-explorateur', pedagogue:'b-pedagogue'};
+        for(const [k,id] of Object.entries(map)){
+          const el=document.getElementById(id);
+          if(badges.has(k)) el.textContent = '● ' + el.textContent.slice(2) + ' ✓';
+        }
+      }catch{}
+    }
+
+    document.getElementById('quiz-share').addEventListener('click', ()=>{
+      const scoreText = document.getElementById('quiz-score').textContent;
+      const text = `Cumuloscope quiz du ${dateStr}: ${scoreText} — et vous ?`;
+      if(navigator.share) navigator.share({title:'Cumuloscope', text, url: location.href}).catch(()=>{});
+      else { navigator.clipboard.writeText(text + ' ' + location.href); alert('Score copié !'); }
+      try{
+        const badges=new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]')); badges.add('pedagogue'); localStorage.setItem('cumuloscope:badges', JSON.stringify([...badges])); updateBadges();
+      }catch{}
+    });
+    document.getElementById('quiz-retry').addEventListener('click', render);
+    document.getElementById('reset').addEventListener('click', ()=>{
+      localStorage.removeItem('cumuloscope:streak'); localStorage.removeItem('cumuloscope:badges');
+      // keep quiz history? clear too
+      updateBadges(); render();
+    });
+
+    render(); updateBadges();
+    // mark chronologue if visited histoire? via localStorage flag set on histoire page
+  </script>
+</Layout>

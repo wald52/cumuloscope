@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "52",
+    "libelle": "Haute-Marne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4353,
+    "totalMandats": 5457,
+    "avgMandats": 1.253618194348725,
+    "pctCumulLarge": 15.2,
+    "pctInterdit2014": 0,
+    "effectifCumul": 662,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4339,
+      "epci": 638,
+      "mai": 436,
+      "cd": 33,
+      "cr": 7,
+      "dep": 2,
+      "sen": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 1.6,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=52"
+  }
+}

@@ -1,0 +1,6266 @@
+{
+  "meta": {
+    "code": "36",
+    "libelle": "Indre",
+    "updated": "2026-08-11",
+    "count": 200,
+    "kAnonymity": 5,
+    "warning": "Donnees publiques RNE, affichees apres consentement, noindex. Verifier via data.gouv.fr."
+  },
+  "data": [
+    {
+      "nom": "ÉLION",
+      "prenom": "Virginie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": "5ème Vice-président du conseil départemental"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "AVÉROUS",
+      "prenom": "Gil",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": "6ème Vice-président du conseil départemental"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FORISSIER",
+      "prenom": "Nicolas",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "cr",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cr",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GENESTE",
+      "prenom": "Delphine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cr",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cr",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "AVISSEAU",
+      "prenom": "François",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DE LA TOCNAYE",
+      "prenom": "Thibaut",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cr",
+          "dept": "18",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cr",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DAUGERON",
+      "prenom": "François",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": "7ème Vice-président du conseil départemental"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LACOU",
+      "prenom": "Lydie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MÉTIVIER",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "WASYLCZUK",
+      "prenom": "Julien",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "18",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "18",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MALET",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "18",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "18",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TRUMEAU",
+      "prenom": "Johann",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "18",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "5eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "18",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FAVRAULT",
+      "prenom": "Frédéric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "AUJARD",
+      "prenom": "Etienne",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "VINCENT",
+      "prenom": "Christine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GRENOUILLOUX",
+      "prenom": "Pascale",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "6eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MILLAN",
+      "prenom": "Vincent",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-27"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SAPIN",
+      "prenom": "Clément",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "2ème adjoint au Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cr",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cr"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CIBOT",
+      "prenom": "Arnaud",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BONAC",
+      "prenom": "Jean-Marie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FERRET",
+      "prenom": "Christophe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "7eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JUBERT",
+      "prenom": "Christophe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PETIT",
+      "prenom": "Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PERROT",
+      "prenom": "Lionnel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LESSAULT",
+      "prenom": "Bruno",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PORTRAIT",
+      "prenom": "Isabelle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "OVAN",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MOYRAND",
+      "prenom": "Emmanuel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PATRIGEON",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CORBEAU",
+      "prenom": "Nathalie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "1er adjoint au Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LHERPINIERE",
+      "prenom": "Gilles",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-28"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JOLIBERT",
+      "prenom": "Bertrand",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CARTOUX",
+      "prenom": "Christelle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "VITTE",
+      "prenom": "Carole",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FEIGNON",
+      "prenom": "Blanche",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BAUDAT",
+      "prenom": "Patrice",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FOUCAULT",
+      "prenom": "Hugues",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BOURY",
+      "prenom": "Jean-Claude",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "6eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BIENVENUT",
+      "prenom": "Marie-José",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MALOU",
+      "prenom": "Bruno",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ALLELY",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LAPOUMÉROULIE",
+      "prenom": "Dominique",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUENIN",
+      "prenom": "Didier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "THOMAS",
+      "prenom": "Nicolas",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BODIN",
+      "prenom": "Anne-Laure",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHAILLOUX",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "VAURY",
+      "prenom": "Fabrice",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DUBUS",
+      "prenom": "Anthony",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "NATUREL",
+      "prenom": "Marie-Paule",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-27"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MEUNIER MERIOT",
+      "prenom": "Nathalie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SALMON",
+      "prenom": "Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MORIN",
+      "prenom": "Christophe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "AUGER",
+      "prenom": "Sylvain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SCHOBERT",
+      "prenom": "Christophe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "NOC-CHAPUT",
+      "prenom": "Stéphanie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JBARA-SOUNNI",
+      "prenom": "Imane",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "4ème adjoint au Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LEROY",
+      "prenom": "Nolwenn",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PETIPEZ",
+      "prenom": "Florence",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "6ème adjoint au Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": "3ème Vice-président du conseil départemental"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "WUNSCH",
+      "prenom": "Mylène",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cr",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cr"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ZECCHI",
+      "prenom": "Stéphane",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "10eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "NICAUD",
+      "prenom": "Gérard",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHAPUT",
+      "prenom": "Christel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GRELET",
+      "prenom": "Jean-Paul",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TROMPEAU",
+      "prenom": "Frédérique",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DURET",
+      "prenom": "Didier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TETU",
+      "prenom": "Patrick",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BRANCHEREAU",
+      "prenom": "Carole",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LAFOUX",
+      "prenom": "Florian",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUILLOTEAU",
+      "prenom": "David",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PACÔME",
+      "prenom": "Charlyne",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FLEURY",
+      "prenom": "Didier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MORIN",
+      "prenom": "Jean-François",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DEJOLLAT",
+      "prenom": "Daniel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DISTRIQUIN",
+      "prenom": "Sébastien",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DAUDON",
+      "prenom": "Daniel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BIDEAUX",
+      "prenom": "Nicolas",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUILBAUD",
+      "prenom": "André",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FLEURET",
+      "prenom": "Marc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": "Président du conseil départemental"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "VERRHIEST",
+      "prenom": "Jean-Marc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "THIERRY",
+      "prenom": "Cédric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BONDOUX",
+      "prenom": "Christel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LAURENCIER",
+      "prenom": "Nathalie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "VILLERETTE",
+      "prenom": "Bernard",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "POURNIN",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LAURENT",
+      "prenom": "Florence",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHARASSON",
+      "prenom": "Patrick",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "7eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LABLANCHE",
+      "prenom": "Francis",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CONFOLANT",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PANEL",
+      "prenom": "Marc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DENORMANDIE",
+      "prenom": "Arnaud",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LAVENU",
+      "prenom": "Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "HUOT",
+      "prenom": "Christiane",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "HEBERT",
+      "prenom": "Olivier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "REUILLON",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BERTRAND",
+      "prenom": "Marie-Laure",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BAZIN",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ERNEWEIN",
+      "prenom": "Monique",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "6eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUÉRIN",
+      "prenom": "Sophie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CARTIER",
+      "prenom": "Marie-Hélene",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BARBIER",
+      "prenom": "Lucie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "6eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BOUGAULT",
+      "prenom": "Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DUBOT",
+      "prenom": "Julien",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-29"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BREUILLAUD",
+      "prenom": "Jacques",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PINON",
+      "prenom": "Dominique",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "AUBRUN-SASSIER",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GARGAUD",
+      "prenom": "Patrick",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "6eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ROUSSEAU-JOUHENNET",
+      "prenom": "Alexis",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BALLET",
+      "prenom": "Michèle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ROUSSEAU",
+      "prenom": "Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MARSAT",
+      "prenom": "Serge",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PIVOTEAU",
+      "prenom": "Bruno",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MORIN",
+      "prenom": "Pascal",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SAUVARD",
+      "prenom": "Christine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHERAMY",
+      "prenom": "Pascal",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ROUALDÈS",
+      "prenom": "Jean-Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-15"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PION",
+      "prenom": "Luc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TAILLANDIER",
+      "prenom": "Bruno",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TESSIER",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MULTON",
+      "prenom": "Jean-Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LALOGE",
+      "prenom": "Eric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JOURDAIN",
+      "prenom": "Francis",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "7eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TARDIVAT",
+      "prenom": "Christiane",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHARTRON",
+      "prenom": "Jérôme",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-27"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DESCOUX",
+      "prenom": "Denis",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DEMOCRATE",
+      "prenom": "Hervé",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BLANC",
+      "prenom": "Gilbert",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FLEURY",
+      "prenom": "Hervé",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "5eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "RAOUI",
+      "prenom": "Christelle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PESSON",
+      "prenom": "Dany",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PERCHAUD",
+      "prenom": "Chantal",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GIRON",
+      "prenom": "Christophe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-27"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "NAVETTE",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CONFOLANT",
+      "prenom": "Patrice",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LAFONT",
+      "prenom": "Jean-Marc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CLAVELEAU",
+      "prenom": "Christelle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BODIN",
+      "prenom": "Olivier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CAMUS",
+      "prenom": "Jean-Louis",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "TELLIER",
+      "prenom": "Pierre",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DARINOT",
+      "prenom": "Alexandra",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BERNEAU",
+      "prenom": "Pablo",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SAPELKINE",
+      "prenom": "Aliocha",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUERINEAU",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SOULAT",
+      "prenom": "Jérémy",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ALAPETITE",
+      "prenom": "Claude",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JACQUET",
+      "prenom": "Pascal",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ROUILLARD",
+      "prenom": "Maryse",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "NICOLAS",
+      "prenom": "Barbara",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PLANTUREUX",
+      "prenom": "Jean-Christophe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PINOTEAU",
+      "prenom": "Jean-Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHARLOT",
+      "prenom": "Jacques",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHAIGNEAU",
+      "prenom": "Guy",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MEDAR",
+      "prenom": "Jean-Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BOIRON",
+      "prenom": "Patrice",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DEVAU",
+      "prenom": "Rémi",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "5eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MATHEY",
+      "prenom": "Jean-Luc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LACOT",
+      "prenom": "Serge",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "5eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PICAUD",
+      "prenom": "Delphine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "PINSARD",
+      "prenom": "Antony",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "7eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "COSSON",
+      "prenom": "Pascal",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BRÉ",
+      "prenom": "Laurent",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "cd",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "WERBREGUE",
+      "prenom": "Frédéric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MERIOT",
+      "prenom": "Claude",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LANDUREAU",
+      "prenom": "Agnès",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DEJOIE",
+      "prenom": "Christine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "REBEYROL",
+      "prenom": "Sandra",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LALANGE",
+      "prenom": "Sébastien",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "LEFEBVRE",
+      "prenom": "Germain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SAUGET",
+      "prenom": "Gérard",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "1er Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DORADOUX",
+      "prenom": "Jean-Luc",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BRUNET",
+      "prenom": "Céline",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "ARNOUX",
+      "prenom": "Eric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DUPRÉ-SÉGOT",
+      "prenom": "Danielle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GOURINAT",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "7eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHAUSSEMY",
+      "prenom": "Guillaume",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CRON",
+      "prenom": "Yves",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "POURTIÉ",
+      "prenom": "Alain",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "WEINLING",
+      "prenom": "Eric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "4eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DEFORGES",
+      "prenom": "Jean-Marie",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "RETAUD",
+      "prenom": "Xavier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JOUOT",
+      "prenom": "Hubert",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "6eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BOUQUIN",
+      "prenom": "Serge",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "VAN REMOORTERE",
+      "prenom": "Eric",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "COUSSET",
+      "prenom": "Marine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "DARNAULT",
+      "prenom": "Joël",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BILLARD",
+      "prenom": "Sandrine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GOURLAY",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "Président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUILLEMAIN",
+      "prenom": "Jean-Michel",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "D'OIRON",
+      "prenom": "Antoine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BERNARD",
+      "prenom": "Thierry",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MILLIN",
+      "prenom": "Yohan",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHAUVEAU",
+      "prenom": "Thierry",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "NICOLET",
+      "prenom": "Jean-Pierre",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "SELLERON",
+      "prenom": "Michèle",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "1er adjoint au Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "2eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "cd",
+          "dept": "36",
+          "fonction": ""
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "cd"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "CHABENAT",
+      "prenom": "Marie-Christine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-21"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BREC",
+      "prenom": "Christian",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-27"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "BRICE",
+      "prenom": "Olivier",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "MARSAULT",
+      "prenom": "Sébastien",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "JOUBERT",
+      "prenom": "Séverine",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "5eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "GUERIN",
+      "prenom": "Philippe",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": ""
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-22"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    },
+    {
+      "nom": "FAYARD",
+      "prenom": "Bertrand",
+      "mandats": [
+        {
+          "type": "cm",
+          "dept": "36",
+          "fonction": "Maire"
+        },
+        {
+          "type": "epci",
+          "dept": "36",
+          "fonction": "3eme Vice-président du conseil communautaire"
+        },
+        {
+          "type": "mai",
+          "dept": "36",
+          "fonction": "2026-03-20"
+        }
+      ],
+      "typesDistincts": [
+        "cm",
+        "epci",
+        "mai"
+      ],
+      "cumulLarge": true,
+      "interdit2014": false,
+      "sources": [
+        "RNE 11/08/2026"
+      ]
+    }
+  ]
+}

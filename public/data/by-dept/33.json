@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "33",
+    "libelle": "Gironde",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 9053,
+    "totalMandats": 10805,
+    "avgMandats": 1.1935270076217828,
+    "pctCumulLarge": 13.9,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1254,
+    "effectifInterdit": 7,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 8998,
+      "epci": 1139,
+      "mai": 535,
+      "cd": 66,
+      "cr": 49,
+      "dep": 12,
+      "sen": 6
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0.3,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=33"
+  }
+}

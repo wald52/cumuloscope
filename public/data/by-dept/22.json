@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "22",
+    "libelle": "Côtes-d'Armor",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5747,
+    "totalMandats": 6700,
+    "avgMandats": 1.1658256481642597,
+    "pctCumulLarge": 10.7,
+    "pctInterdit2014": 0,
+    "effectifCumul": 615,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5704,
+      "epci": 575,
+      "mai": 342,
+      "cr": 17,
+      "cd": 54,
+      "dep": 5,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -2.9,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=22"
+  }
+}

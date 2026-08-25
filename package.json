@@ -1,0 +1,27 @@
+{
+  "name": "cumuloscope",
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run data:build && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "data:build": "node scripts/preprocess.mjs",
+    "data:fetch": "node scripts/preprocess.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.6",
+    "chart.js": "^4.5.1",
+    "leaflet": "^1.9.4",
+    "papaparse": "^5.7.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

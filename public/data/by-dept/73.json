@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "73",
+    "libelle": "Savoie",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4281,
+    "totalMandats": 5234,
+    "avgMandats": 1.2226115393599626,
+    "pctCumulLarge": 15.7,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 674,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4254,
+      "epci": 651,
+      "mai": 273,
+      "cd": 38,
+      "cr": 12,
+      "dep": 4,
+      "sen": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 2.1,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=73"
+  }
+}

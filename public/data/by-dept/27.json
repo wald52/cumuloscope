@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "27",
+    "libelle": "Eure",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 8270,
+    "totalMandats": 9830,
+    "avgMandats": 1.18863361547763,
+    "pctCumulLarge": 11.9,
+    "pctInterdit2014": 0,
+    "effectifCumul": 980,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 8250,
+      "epci": 923,
+      "mai": 585,
+      "cd": 46,
+      "cr": 18,
+      "dep": 5,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.7,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=27"
+  }
+}

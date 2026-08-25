@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "26",
+    "libelle": "Drôme",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5012,
+    "totalMandats": 6095,
+    "avgMandats": 1.2160814046288906,
+    "pctCumulLarge": 14.5,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 729,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4991,
+      "epci": 676,
+      "mai": 366,
+      "cd": 39,
+      "cr": 16,
+      "dep": 4,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0.9,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=26"
+  }
+}

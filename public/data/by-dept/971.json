@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "971",
+    "libelle": "Guadeloupe",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 968,
+    "totalMandats": 1277,
+    "avgMandats": 1.3192148760330578,
+    "pctCumulLarge": 25.6,
+    "pctInterdit2014": 0.3,
+    "effectifCumul": 248,
+    "effectifInterdit": 3,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 936,
+      "epci": 228,
+      "cr": 39,
+      "cd": 41,
+      "dep": 4,
+      "mai": 26,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 12,
+      "ecartInterdit": 0.2
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=971"
+  }
+}

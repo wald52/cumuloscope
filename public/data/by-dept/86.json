@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "86",
+    "libelle": "Vienne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4149,
+    "totalMandats": 4787,
+    "avgMandats": 1.153771993251386,
+    "pctCumulLarge": 11.1,
+    "pctInterdit2014": 0,
+    "effectifCumul": 461,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4121,
+      "mai": 264,
+      "epci": 347,
+      "cd": 38,
+      "cr": 11,
+      "sen": 2,
+      "dep": 4
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -2.5,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=86"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "67",
+    "libelle": "Bas-Rhin",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 8305,
+    "totalMandats": 9926,
+    "avgMandats": 1.1951836243226972,
+    "pctCumulLarge": 13.5,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1119,
+    "effectifInterdit": 7,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 8293,
+      "epci": 1058,
+      "mai": 512,
+      "cd": 30,
+      "cr": 19,
+      "sen": 5,
+      "dep": 9
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.1,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=67"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "57",
+    "libelle": "Moselle",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 10404,
+    "totalMandats": 12038,
+    "avgMandats": 1.1570549788542868,
+    "pctCumulLarge": 12.5,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1302,
+    "effectifInterdit": 11,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 10371,
+      "mai": 723,
+      "epci": 844,
+      "cd": 54,
+      "cr": 32,
+      "sen": 5,
+      "dep": 9
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.1,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=57"
+  }
+}

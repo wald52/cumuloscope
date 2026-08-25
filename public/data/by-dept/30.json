@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "30",
+    "libelle": "Gard",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5755,
+    "totalMandats": 6889,
+    "avgMandats": 1.1970460469157254,
+    "pctCumulLarge": 13.6,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 782,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5730,
+      "epci": 736,
+      "mai": 350,
+      "cr": 18,
+      "cd": 46,
+      "dep": 6,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=30"
+  }
+}

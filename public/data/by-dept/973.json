@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "code": "973",
+    "libelle": "Guyane",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 199,
+    "totalMandats": 207,
+    "avgMandats": 1.0402010050251256,
+    "pctCumulLarge": 4,
+    "pctInterdit2014": 0,
+    "effectifCumul": 8,
+    "effectifInterdit": 0,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 12,
+      "epci": 149,
+      "ma": 44,
+      "dep": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -9.6,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=973"
+  }
+}

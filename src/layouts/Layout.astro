@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+const {
+  title = "Cumuloscope — Le cumul des mandats en France (1958-2026)",
+  description = "Explorez le cumul des mandats des élus français sous la Ve République. Données officielles, anonymisées, pédagogiques.",
+  ogImage = "/cumuloscope/og-default.png",
+  noindex = false,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  </head>
+  <body class="bg-cumulo-bg text-slate-900 antialiased min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-cumulo-border">
+      <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
+        <a href={`${base}`} class="flex items-center gap-2 font-bold text-cumulo-blue text-lg">
+          <span class="w-8 h-8 rounded-lg bg-cumulo-blue text-white grid place-items-center text-sm">◈</span>
+          Cumuloscope
+          <span class="hidden sm:inline text-xs font-normal text-slate-500 ml-1">Ve République</span>
+        </a>
+        <nav class="flex items-center gap-1 text-sm">
+          <a href={`${base}`} class="px-3 py-1.5 rounded-full hover:bg-slate-100">Explorer</a>
+          <a href={`${base}histoire/`} class="px-3 py-1.5 rounded-full hover:bg-slate-100">Histoire</a>
+          <a href={`${base}quiz/`} class="px-3 py-1.5 rounded-full hover:bg-slate-100">Quiz</a>
+          <a href={`${base}methodologie/`} class="px-3 py-1.5 rounded-full hover:bg-slate-100">Méthodo</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="mt-12 border-t border-cumulo-border bg-white">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <p class="font-semibold text-slate-900">Cumuloscope</p>
+            <p class="mt-1">Observatoire pédagogique du cumul des mandats (1958–2026).<br/>Données publiques, agrégées par défaut, sans jugement.</p>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-900">Sources</p>
+            <ul class="mt-1 space-y-1 underline decoration-slate-300">
+              <li><a href="https://www.data.gouv.fr/datasets/repertoire-national-des-elus-1" target="_blank">RNE – Ministère de l’Intérieur</a> (11/08/2026)</li>
+              <li><a href="https://data.assemblee-nationale.fr" target="_blank">data.assemblee-nationale.fr</a> • <a href="https://data.senat.fr" target="_blank">data.senat.fr</a></li>
+              <li><a href="https://www.hatvp.fr/open-data/" target="_blank">HATVP Open Data</a> (liste.csv + declarations.xml)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-slate-900">À propos</p>
+            <p class="mt-1">Licence Ouverte 2.0. Traitement local en build, pas de tracking. <a href={`${base}methodologie/`} class="underline">Méthodologie & mentions</a>.</p>
+            <p class="mt-2 text-xs">k-anonymat ≥5 — les territoires &lt;5 élus sont grisés. Rectification: via préfecture (RNE) + <a href="mailto:contact@cumuloscope.fr" class="underline">contact</a>.</p>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-slate-500">Données indicatives, ne constituent pas un avis juridique. Conçu pour informer, pas pour dénoncer. 2026 — wald52.</p>
+      </div>
+    </footer>
+  </body>
+</html>

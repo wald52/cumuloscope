@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "24",
+    "libelle": "Dordogne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 6728,
+    "totalMandats": 7669,
+    "avgMandats": 1.1398632580261594,
+    "pctCumulLarge": 12,
+    "pctInterdit2014": 0,
+    "effectifCumul": 804,
+    "effectifInterdit": 3,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 6702,
+      "mai": 495,
+      "epci": 402,
+      "cd": 50,
+      "cr": 14,
+      "sen": 2,
+      "dep": 4
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.6,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=24"
+  }
+}

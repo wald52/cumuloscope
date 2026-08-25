@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "63",
+    "libelle": "Puy-de-Dôme",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 6581,
+    "totalMandats": 7908,
+    "avgMandats": 1.2016410879805501,
+    "pctCumulLarge": 12.9,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 851,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 6539,
+      "epci": 815,
+      "mai": 464,
+      "cr": 20,
+      "cd": 62,
+      "sen": 3,
+      "dep": 5
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.7,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=63"
+  }
+}

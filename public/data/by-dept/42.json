@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "42",
+    "libelle": "Loire",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5290,
+    "totalMandats": 6246,
+    "avgMandats": 1.180718336483932,
+    "pctCumulLarge": 11.9,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 631,
+    "effectifInterdit": 7,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5253,
+      "epci": 603,
+      "mai": 320,
+      "cd": 42,
+      "cr": 18,
+      "dep": 6,
+      "sen": 4
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.7,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=42"
+  }
+}

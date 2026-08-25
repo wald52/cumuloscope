@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "68",
+    "libelle": "Haut-Rhin",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 6002,
+    "totalMandats": 7172,
+    "avgMandats": 1.1949350216594468,
+    "pctCumulLarge": 13,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 783,
+    "effectifInterdit": 6,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5994,
+      "epci": 765,
+      "mai": 366,
+      "cd": 22,
+      "cr": 15,
+      "sen": 4,
+      "dep": 6
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.6,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=68"
+  }
+}

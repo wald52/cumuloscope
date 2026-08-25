@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "90",
+    "libelle": "Territoire de Belfort",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 1460,
+    "totalMandats": 1764,
+    "avgMandats": 1.2082191780821918,
+    "pctCumulLarge": 13.3,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 194,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 1450,
+      "epci": 188,
+      "mai": 101,
+      "cd": 18,
+      "dep": 2,
+      "cr": 4,
+      "sen": 1
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.3,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=90"
+  }
+}

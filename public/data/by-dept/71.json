@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "71",
+    "libelle": "Saône-et-Loire",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 7698,
+    "totalMandats": 9321,
+    "avgMandats": 1.210833982852689,
+    "pctCumulLarge": 13.4,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1033,
+    "effectifInterdit": 6,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 7667,
+      "epci": 1002,
+      "mai": 569,
+      "cd": 56,
+      "cr": 19,
+      "sen": 3,
+      "dep": 5
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=71"
+  }
+}

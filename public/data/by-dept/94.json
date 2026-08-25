@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "94",
+    "libelle": "Val-de-Marne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 1766,
+    "totalMandats": 1916,
+    "avgMandats": 1.084937712344281,
+    "pctCumulLarge": 4.9,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 87,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 1731,
+      "epci": 51,
+      "mai": 46,
+      "cd": 49,
+      "cr": 22,
+      "sen": 6,
+      "dep": 11
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -8.7,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=94"
+  }
+}

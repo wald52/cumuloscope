@@ -1,0 +1,356 @@
+---
+import Layout from "../layouts/Layout.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const dataPath = path.join(process.cwd(), "public/data/aggregated.json");
+const raw = fs.readFileSync(dataPath, "utf-8");
+const { national, byDept, timeline, meta } = JSON.parse(raw);
+const base = import.meta.env.BASE_URL;
+
+// Top 5 depts by pct cumul (k>=5)
+const topCumul = [...byDept].filter(d=>!d.kAnonyme).sort((a,b)=>b.pctCumulLarge - a.pctCumulLarge).slice(0,5);
+const lowCumul = [...byDept].filter(d=>!d.kAnonyme).sort((a,b)=>a.pctCumulLarge - b.pctCumulLarge).slice(0,5);
+---
+
+<Layout title="Cumuloscope — Explorer le cumul des mandats (Ve République)" description="510 000 élus, 13.5% en cumul large. Explorez votre département, la timeline 1958-2026 et testez vos connaissances. Données officielles RNE/HATVP.">
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-cumulo-blue to-cumulo-blue-light text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-widest bg-white/15 rounded-full px-3 py-1">Données officielles • MAJ {meta.updated} • Licence Ouverte 2.0</p>
+          <h1 class="mt-4 text-3xl md:text-4xl font-extrabold leading-tight">Le cumul des mandats,<br/>enfin lisible.</h1>
+          <p class="mt-3 text-white/80">Ve République (1958–2026). Vision <strong class="text-white">large</strong> par défaut (≥2 mandats simultanés) + filtre <strong class="text-white">interdit loi 2014</strong>. Agrégats anonymisés, pédagogie avant jugement.</p>
+
+          <!-- Recherche code postal / dept -->
+          <div class="mt-6 bg-white rounded-2xl p-2 flex gap-2 shadow-xl">
+            <input id="dept-search" type="text" placeholder="Code postal, département (ex: 59, 75001, 2A) ou nom" class="flex-1 px-4 py-2.5 rounded-xl text-slate-900 outline-none" />
+            <button id="dept-go" class="px-5 py-2.5 rounded-xl bg-cumulo-accent text-slate-900 font-semibold hover:bg-cumulo-accent-hover">Explorer →</button>
+          </div>
+          <p class="mt-2 text-xs text-white/60">Exemple: tapez <button data-example="59" class="underline example-btn">59</button>, <button data-example="75" class="underline example-btn">75</button>, <button data-example="971" class="underline example-btn">971</button> ou <button data-example="Lyon" class="underline example-btn">Rhône</button>. Aucun nom affiché par défaut.</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 rounded-full bg-white/15">✓ k-anonymat ≥5</span>
+            <span class="px-2 py-1 rounded-full bg-white/15">✓ Sans tracking</span>
+            <span class="px-2 py-1 rounded-full bg-white/15">✓ Partage anonyme</span>
+          </div>
+        </div>
+        <div class="bg-white text-slate-900 rounded-2xl p-5 shadow-xl">
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <p class="text-2xl font-extrabold text-cumulo-blue">{national.totalElus.toLocaleString('fr-FR')}</p>
+              <p class="text-xs text-slate-500">élus uniques<br/>(RNE 2026)</p>
+            </div>
+            <div>
+              <p class="text-2xl font-extrabold text-cumulo-blue">{national.pctCumulLarge}%</p>
+              <p class="text-xs text-slate-500">en cumul large<br/>≥2 mandats</p>
+            </div>
+            <div>
+              <p class="text-2xl font-extrabold text-emerald-600">{national.pctInterdit2014}%</p>
+              <p class="text-xs text-slate-500">interdit loi 2014<br/>parl.+exécutif</p>
+            </div>
+          </div>
+          <div class="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900">
+            <strong>Lecture:</strong> 1 élu sur {Math.round(100/national.pctCumulLarge)} cumule ≥2 mandats. Après 2017, le cumul parlementaire+exécutif est quasi résiduel ({national.pctInterdit2014}% — 304 cas détectés).
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+            <a href={`${base}quiz/`} class="rounded-xl bg-cumulo-blue text-white text-center py-2.5 font-semibold">Faire le quiz →</a>
+            <button id="share-home" class="rounded-xl border border-slate-200 py-2.5 font-semibold hover:bg-slate-50">Partager ma carte</button>
+          </div>
+          <p class="mt-2 text-[10px] text-slate-500 text-center">Couverture: {meta.couverture}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE + TIMELINE -->
+  <section class="max-w-6xl mx-auto px-4 py-8 grid lg:grid-cols-5 gap-6">
+    <div class="lg:col-span-3 bg-white rounded-2xl border border-cumulo-border p-4">
+      <div class="flex items-center justify-between">
+        <h2 class="font-bold text-cumulo-blue">Carte par département — agrégats anonymisés</h2>
+        <span class="text-xs px-2 py-1 rounded-full bg-slate-100">k ≥5</span>
+      </div>
+      <p class="text-xs text-slate-500 mt-1">Couleur = % cumul large. Cliquez pour le détail anonyme. Noms uniquement après consentement.</p>
+      <div id="map" class="mt-3 h-[380px] rounded-xl border border-slate-200 bg-slate-50"></div>
+      <div class="mt-2 flex items-center gap-2 text-[10px] text-slate-500">
+        <span class="w-3 h-3 bg-[#fee8c8] border"></span> &lt;10%
+        <span class="w-3 h-3 bg-[#fdbb84] border"></span> 10–14%
+        <span class="w-3 h-3 bg-[#fc8d59] border"></span> 14–18%
+        <span class="w-3 h-3 bg-[#ef6548] border"></span> 18%+
+        <span class="ml-auto">Source: RNE 11/08/2026</span>
+      </div>
+    </div>
+
+    <div class="lg:col-span-2 bg-white rounded-2xl border border-cumulo-border p-4 flex flex-col">
+      <h2 class="font-bold text-cumulo-blue">Timeline 1958–2026</h2>
+      <p class="text-xs text-slate-500">% nationaux en cumul. Points 2012/2017 = ruptures.</p>
+      <div class="mt-3 flex-1 min-h-[240px]">
+        <canvas id="timelineChart" height="220"></canvas>
+      </div>
+      <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+        <div class="p-2 rounded-xl bg-slate-50 border"><strong>1958-85</strong> illimité → 78% cumul</div>
+        <div class="p-2 rounded-xl bg-slate-50 border"><strong>1985/2000</strong> max 2 mandats</div>
+        <div class="p-2 rounded-xl bg-amber-50 border border-amber-200"><strong>2014/2017</strong> parl.+exécutif interdit → 0.1%</div>
+        <div class="p-2 rounded-xl bg-emerald-50 border border-emerald-200"><strong>2026</strong> 13.5% large, 0.1% interdit</div>
+      </div>
+      <a href={`${base}histoire/`} class="mt-3 text-xs underline text-cumulo-blue">Voir l'histoire détaillée →</a>
+    </div>
+  </section>
+
+  <!-- CLASSEMENTS ANONYMES -->
+  <section class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl border border-cumulo-border p-4">
+        <h3 class="font-semibold text-cumulo-blue">Départements — % cumul le plus élevé</h3>
+        <p class="text-xs text-slate-500">Agrégats uniquement, jamais de noms ici.</p>
+        <ul class="mt-3 divide-y text-sm">
+          {topCumul.map(d => (
+            <li class="flex items-center justify-between py-2">
+              <a href={`${base}departement/${d.code}/`} class="flex items-center gap-2 hover:underline"><span class="w-8 text-xs font-mono bg-slate-100 rounded px-1 py-0.5 text-center">{d.code}</span> {d.libelle}</a>
+              <span class="font-mono font-semibold">{d.pctCumulLarge}% <span class="text-xs font-normal text-slate-500">({d.effectifCumul})</span></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="bg-white rounded-2xl border border-cumulo-border p-4">
+        <h3 class="font-semibold text-cumulo-blue">Départements — % cumul le plus faible</h3>
+        <p class="text-xs text-slate-500">Là aussi, que des %.</p>
+        <ul class="mt-3 divide-y text-sm">
+          {lowCumul.map(d => (
+            <li class="flex items-center justify-between py-2">
+              <a href={`${base}departement/${d.code}/`} class="flex items-center gap-2 hover:underline"><span class="w-8 text-xs font-mono bg-slate-100 rounded px-1 py-0.5 text-center">{d.code}</span> {d.libelle}</a>
+              <span class="font-mono font-semibold">{d.pctCumulLarge}%</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ + BADGES + SIMULATEUR -->
+  <section class="max-w-6xl mx-auto px-4 mt-6 grid md:grid-cols-3 gap-6">
+    <a href={`${base}quiz/`} class="bg-cumulo-accent rounded-2xl p-5 border border-amber-200 hover:shadow-md block">
+      <p class="text-xs uppercase tracking-widest">Gamification sobre</p>
+      <h3 class="font-bold text-lg">Quiz du jour — 3 questions</h3>
+      <p class="text-sm mt-1">Testez la loi 2014 sans afficher un seul nom. Streak + badges en localStorage.</p>
+      <p class="mt-3 inline-flex px-3 py-1.5 bg-slate-900 text-white rounded-full text-xs font-semibold">Jouer →</p>
+      <p class="mt-2 text-xs">Badges: <span id="badge-count">0</span>/6 • Streak: <span id="streak-count">0</span> jours</p>
+    </a>
+    <div class="bg-white rounded-2xl border border-cumulo-border p-5">
+      <h3 class="font-bold text-cumulo-blue">Simulateur “Et si vous étiez élu ?”</h3>
+      <div class="mt-3 space-y-2 text-sm">
+        <select id="simu1" class="w-full border rounded-xl px-3 py-2"><option value="">Mandat 1</option><option value="dep">Député</option><option value="sen">Sénateur</option><option value="mai">Maire</option><option value="cd">Président département</option><option value="cr">Président région</option><option value="cm">Conseiller municipal</option></select>
+        <select id="simu2" class="w-full border rounded-xl px-3 py-2"><option value="">Mandat 2</option><option value="dep">Député</option><option value="sen">Sénateur</option><option value="mai">Maire</option><option value="cd">Président département</option><option value="cr">Président région</option><option value="cm">Conseiller municipal</option></select>
+        <button id="simu-go" class="w-full bg-cumulo-blue text-white rounded-xl py-2 font-semibold">Tester la compatibilité</button>
+        <p id="simu-result" class="text-xs p-2 rounded-xl bg-slate-50 border hidden"></p>
+      </div>
+    </div>
+    <div class="bg-white rounded-2xl border border-cumulo-border p-5">
+      <h3 class="font-bold text-cumulo-blue">Défi code postal</h3>
+      <p class="text-sm text-slate-600">Votre territoire vs moyenne nationale. Carte à partager (anonyme) générée en Canvas.</p>
+      <button id="canvas-share" class="mt-3 w-full border border-slate-200 rounded-xl py-2 font-semibold hover:bg-slate-50">Générer ma carte à partager</button>
+      <canvas id="shareCanvas" width="1200" height="630" class="hidden"></canvas>
+      <p class="text-[10px] text-slate-500 mt-2">Aucun nom sur l'image. QR vers Cumuloscope.</p>
+    </div>
+  </section>
+
+  <!-- Filtre loi 2014 rappel -->
+  <section class="max-w-6xl mx-auto px-4 mt-6">
+    <div class="bg-white rounded-2xl border border-cumulo-border p-4 flex flex-wrap gap-3 items-center justify-between">
+      <div>
+        <p class="font-semibold">Filtre d'interprétation</p>
+        <p class="text-xs text-slate-600">Par défaut: <strong>cumul large</strong> (≥2 types). Activez le filtre pour ne voir que l' <strong>interdit loi 2014</strong> (parlementaire + exécutif).</p>
+      </div>
+      <label class="inline-flex items-center gap-2 text-sm border rounded-full px-3 py-1.5 cursor-pointer">
+        <input id="filter2014" type="checkbox" class="accent-cumulo-blue" /> Filtre “interdit 2014” uniquement
+      </label>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ base, national, byDept, timeline }}>
+    // Minimal dept search
+    const searchInput = document.getElementById('dept-search');
+    const goBtn = document.getElementById('dept-go');
+    function normalize(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().trim(); }
+    const deptMap = new Map(byDept.map(d=>[d.code, d.libelle]));
+    const nameToCode = new Map(byDept.map(d=>[normalize(d.libelle), d.code]));
+    function resolveDept(q){
+      q = q.trim();
+      if(!q) return null;
+      // postal code 5 digits -> dept 2 first chars (97x 3)
+      if(/^\d{5}$/.test(q)){
+        if(q.startsWith('97')) return q.slice(0,3);
+        if(q.startsWith('20')){ // Corse split approx
+          const n = parseInt(q.slice(0,5),10);
+          return n < 20200 ? '2A' : '2B';
+        }
+        return q.slice(0,2).replace(/^0/,'');
+      }
+      if(/^(2A|2B|\d{2,3})$/.test(q.toUpperCase())) return q.toUpperCase();
+      const n = normalize(q);
+      if(nameToCode.has(n)) return nameToCode.get(n);
+      // partial
+      for(const d of byDept){ if(normalize(d.libelle).includes(n)) return d.code; }
+      return null;
+    }
+    function go(){
+      const q = searchInput.value;
+      const code = resolveDept(q);
+      if(code && deptMap.has(code)) location.href = base + 'departement/' + code + '/';
+      else {
+        searchInput.classList.add('ring','ring-red-300');
+        setTimeout(()=>searchInput.classList.remove('ring','ring-red-300'), 1200);
+      }
+    }
+    goBtn.addEventListener('click', go);
+    searchInput.addEventListener('keydown', e=>{ if(e.key==='Enter') go(); });
+    document.querySelectorAll('.example-btn').forEach(b=>b.addEventListener('click', ()=>{ searchInput.value = b.dataset.example; go(); }));
+
+    // Simulateur
+    const simu1 = document.getElementById('simu1');
+    const simu2 = document.getElementById('simu2');
+    const simuGo = document.getElementById('simu-go');
+    const simuRes = document.getElementById('simu-result');
+    function simu(){
+      const a = simu1.value, b = simu2.value;
+      if(!a || !b) { simuRes.textContent='Choisissez 2 mandats.'; simuRes.classList.remove('hidden'); return; }
+      const parl = new Set(['dep','sen']);
+      const exec = new Set(['mai','cd','cr']);
+      const isParlExec = (parl.has(a) && exec.has(b)) || (parl.has(b) && exec.has(a));
+      if(isParlExec){
+        simuRes.textContent = '⛔ Incompatible depuis 2017 (loi 2014-125). Un parlementaire ne peut pas exercer de fonction exécutive locale (maire/adj., président/vp).';
+        simuRes.className='text-xs p-2 rounded-xl bg-red-50 border border-red-200 text-red-800';
+      } else {
+        simuRes.textContent = '✅ Compatible à ce jour (définition large). Attention: charge de travail et éthique à considérer.';
+        simuRes.className='text-xs p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800';
+      }
+      simuRes.classList.remove('hidden');
+    }
+    simuGo.addEventListener('click', simu);
+
+    // Badges/streak from localStorage
+    try{
+      const badges = JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]');
+      document.getElementById('badge-count').textContent = badges.length;
+      const streak = JSON.parse(localStorage.getItem('cumuloscope:streak')||'{"count":0}');
+      document.getElementById('streak-count').textContent = streak.count || 0;
+    }catch{}
+
+    // Share home card via Web Share or canvas
+    document.getElementById('share-home').addEventListener('click', ()=>{
+      const text = `Cumuloscope: ${national.totalElus.toLocaleString('fr-FR')} élus, ${national.pctCumulLarge}% en cumul large, ${national.pctInterdit2014}% interdit 2014. Et ton département?`;
+      if(navigator.share) navigator.share({title:'Cumuloscope', text, url: location.href}).catch(()=>{});
+      else { navigator.clipboard.writeText(text + ' ' + location.href); alert('Lien copié !'); }
+    });
+
+    // Canvas share
+    document.getElementById('canvas-share').addEventListener('click', ()=>{
+      const c = document.getElementById('shareCanvas');
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#0f2a44'; ctx.fillRect(0,0,1200,630);
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 48px sans-serif'; ctx.fillText('Cumuloscope — Ve République', 40, 80);
+      ctx.font = '28px sans-serif'; ctx.fillText(`${national.totalElus.toLocaleString('fr-FR')} élus • ${national.pctCumulLarge}% en cumul large • ${national.pctInterdit2014}% interdit 2014`, 40, 130);
+      ctx.fillStyle = '#f2c744'; ctx.font = 'bold 36px sans-serif'; ctx.fillText('Et ton département ?', 40, 280);
+      ctx.fillStyle = '#fff'; ctx.font = '20px sans-serif'; ctx.fillText('Données RNE 11/08/2026 • Licence Ouverte • cumuloscope.fr', 40, 580);
+      ctx.strokeStyle = '#ffffff33'; ctx.strokeRect(20,20,1160,590);
+      c.toBlob(b=>{
+        if(b){
+          const url = URL.createObjectURL(b);
+          const a = document.createElement('a'); a.href = url; a.download = 'cumuloscope-carte.png'; a.click();
+          URL.revokeObjectURL(url);
+          // badge
+          try{
+            const badges = new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]'));
+            badges.add('pedagogue'); localStorage.setItem('cumuloscope:badges', JSON.stringify([...badges]));
+          }catch{}
+        }
+      });
+    });
+
+    // Filter 2014 toggle -> will recolor map via event
+    document.getElementById('filter2014').addEventListener('change', e=>{
+      window.dispatchEvent(new CustomEvent('cumulo:filter', {detail:{interditOnly: e.target.checked}}));
+    });
+  </script>
+
+  <!-- Leaflet + Chart.js islands (progressive enhancement) -->
+  <script>
+    import L from "leaflet";
+    import { Chart, registerables } from "chart.js";
+    Chart.register(...registerables);
+
+    // Data injected
+    const byDeptData = byDept;
+    const timelineData = timeline;
+
+    // Map
+    const map = L.map('map', { zoomControl: false, attributionControl: true }).setView([46.5, 2.5], 5.2);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OSM & Carto',
+      maxZoom: 8,
+      minZoom: 5
+    }).addTo(map);
+
+    // Approx dept centroids (simplified) — for MVP we use circle markers clustered, not TopoJSON (keeps bundle light)
+    const centroids = {
+      "01":[46.2,5.3],"02":[49.5,3.5],"03":[46.3,3.1],"04":[44.1,6.2],"05":[44.6,6.2],"06":[43.9,7.1],"07":[44.6,4.3],"08":[49.7,4.6],"09":[43.0,1.5],"10":[48.3,4.0],"11":[43.1,2.3],"12":[44.3,2.6],"13":[43.4,5.1],"14":[49.1,-0.3],"15":[45.0,2.7],"16":[45.7,0.2],"17":[45.8,-0.8],"18":[47.0,2.4],"19":[45.3,1.9],"21":[47.3,4.9],"22":[48.4,-2.8],"23":[46.0,2.0],"24":[45.1,0.7],"25":[47.2,6.1],"26":[44.9,5.0],"27":[49.0,1.0],"28":[48.5,1.3],"29":[48.3,-3.9],"2A":[41.9,8.7],"2B":[42.4,9.3],"30":[44.0,4.2],"31":[43.5,1.4],"32":[43.7,0.6],"33":[44.8,-0.5],"34":[43.6,3.2],"35":[48.1,-1.6],"36":[46.8,1.7],"37":[47.3,0.7],"38":[45.2,5.7],"39":[46.7,5.5],"40":[43.9,-0.5],"41":[47.6,1.3],"42":[45.4,4.3],"43":[45.0,3.8],"44":[47.2,-1.5],"45":[47.9,2.1],"46":[44.6,1.6],"47":[44.3,0.5],"48":[44.7,3.5],"49":[47.2,-0.5],"50":[49.1,-1.2],"51":[49.0,4.0],"52":[48.1,5.1],"53":[48.3,-0.6],"54":[48.7,6.1],"55":[49.1,5.3],"56":[47.8,-2.8],"57":[49.0,6.2],"58":[47.0,3.4],"59":[50.4,3.0],"60":[49.3,2.5],"61":[48.6,0.1],"62":[50.4,2.3],"63":[45.7,3.1],"64":[43.3,-0.4],"65":[43.1,0.1],"66":[42.6,2.6],"67":[48.6,7.7],"68":[47.9,7.3],"69":[45.7,4.8],"70":[47.6,6.1],"71":[46.6,4.4],"72":[48.0,0.2],"73":[45.5,6.0],"74":[46.0,6.4],"75":[48.856,2.352],"76":[49.6,1.0],"77":[48.8,2.9],"78":[48.8,1.9],"79":[46.4,-0.3],"80":[49.9,2.3],"81":[43.9,2.1],"82":[44.0,1.3],"83":[43.5,6.1],"84":[44.0,5.0],"85":[46.6,-1.4],"86":[46.6,0.3],"87":[45.8,1.2],"88":[48.1,6.4],"89":[47.8,3.5],"90":[47.6,6.9],"91":[48.5,2.3],"92":[48.8,2.2],"93":[48.9,2.5],"94":[48.8,2.5],"95":[49.0,2.1],"971":[16.2,-61.5],"972":[14.6,-61.0],"973":[3.9,-53.1],"974":[-21.1,55.5],"976":[-12.8,45.1]
+    };
+    function colorFor(pct, interditOnly){
+      const v = interditOnly ? (byDeptData.find(d=>d.code===pct.code)?.pctInterdit2014||0) : pct.pctCumulLarge;
+      // pct is object or number handling
+      const val = typeof v==='number'? v : pct;
+      if(val < 10) return '#fee8c8';
+      if(val < 14) return '#fdbb84';
+      if(val < 18) return '#fc8d59';
+      return '#ef6548';
+    }
+    let markers = [];
+    let interditOnly = false;
+    function renderMarkers(){
+      markers.forEach(m=> map.removeLayer(m));
+      markers=[];
+      byDeptData.forEach(d=>{
+        const c = centroids[d.code];
+        if(!c) return;
+        const val = interditOnly ? d.pctInterdit2014 : d.pctCumulLarge;
+        const col = val < 10 ? '#fee8c8' : val < 14 ? '#fdbb84' : val < 18 ? '#fc8d59' : '#ef6548';
+        const radius = 6 + (d.totalElus/15000)*8;
+        const mk = L.circleMarker(c, { radius: Math.min(18, radius), fillColor: col, color: '#fff', weight: 1, fillOpacity: 0.9 })
+          .addTo(map)
+          .bindTooltip(`<b>${d.code} — ${d.libelle}</b><br/>${d.totalElus.toLocaleString('fr-FR')} élus<br/>${d.pctCumulLarge}% cumul large<br/>${d.pctInterdit2014}% interdit 2014`, { direction: 'top' });
+        mk.on('click', ()=> location.href = base + 'departement/' + d.code + '/');
+        markers.push(mk);
+      });
+    }
+    renderMarkers();
+    window.addEventListener('cumulo:filter', e=>{ interditOnly = e.detail.interditOnly; renderMarkers(); });
+
+    // Timeline Chart
+    const ctx = document.getElementById('timelineChart');
+    if(ctx){
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: timelineData.map(t=>t.year),
+          datasets: [
+            { label: '% cumul large', data: timelineData.map(t=>t.pctCumul), borderColor: '#0f2a44', backgroundColor: 'rgba(15,42,68,0.08)', tension: 0.3, fill: true, pointRadius: 3 },
+            { label: '% interdit 2014', data: timelineData.map(t=>t.pctInterdit), borderColor: '#f2c744', backgroundColor: 'rgba(242,199,68,0.15)', tension: 0.3, fill: true, pointRadius: 3, yAxisID: 'y' }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } } },
+          scales: {
+            x: { grid: { display: false } },
+            y: { beginAtZero: true, max: 80, ticks: { callback: v=>v+'%' }, grid: { color: '#e5e7eb' } }
+          }
+        }
+      });
+    }
+  </script>
+
+  <style>
+    #map { z-index: 1; }
+  </style>
+</Layout>

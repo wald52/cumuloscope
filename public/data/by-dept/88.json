@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "88",
+    "libelle": "Vosges",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 6111,
+    "totalMandats": 7453,
+    "avgMandats": 1.2196039927998692,
+    "pctCumulLarge": 13.8,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 841,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 6093,
+      "epci": 801,
+      "mai": 506,
+      "cd": 34,
+      "cr": 13,
+      "sen": 2,
+      "dep": 4
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0.2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=88"
+  }
+}

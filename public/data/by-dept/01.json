@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "01",
+    "libelle": "Ain",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 6462,
+    "totalMandats": 7628,
+    "avgMandats": 1.1804394924172084,
+    "pctCumulLarge": 12.5,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 810,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 6433,
+      "epci": 765,
+      "mai": 359,
+      "cd": 47,
+      "cr": 16,
+      "dep": 5,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.1,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=01"
+  }
+}

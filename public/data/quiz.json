@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q01",
+    "question": "Depuis 2017, un depute peut-il etre maire ?",
+    "reponses": [
+      "Oui, sans restriction",
+      "Oui, mais pas de fonction executive (maire/adj.)",
+      "Non, aucun mandat local"
+    ],
+    "bonne": 1,
+    "explication": "Loi organique 2014-125: interdiction depute/senateur + fonction executive locale (maire, adjoint, president/vp departement/region/interco). Depuis juin 2017.",
+    "source": "Legifrance LO 2014-125"
+  },
+  {
+    "id": "q02",
+    "question": "Qu'est-ce que le 'cumul large' ?",
+    "reponses": [
+      "2 mandats quelconques en meme temps",
+      "Uniquement 2 mandats de meme type",
+      "Uniquement 3 mandats"
+    ],
+    "bonne": 0,
+    "explication": "Definition large Cumuloscope: detenir >=2 mandats electifs simultanes, meme simples (ex: conseiller municipal + communautaire).",
+    "source": "Methodologie Cumuloscope"
+  },
+  {
+    "id": "q03",
+    "question": "Avant 1985, le cumul etait...",
+    "reponses": [
+      "Interdit",
+      "Limite a 1 mandat",
+      "Illimite"
+    ],
+    "bonne": 2,
+    "explication": "Avant lois 1985, aucun plafond. Culture du cumul 'a la francaise'.",
+    "source": "Vie Publique"
+  },
+  {
+    "id": "q04",
+    "question": "La HATVP publie...",
+    "reponses": [
+      "Le patrimoine complet chiffre",
+      "Les declarations d'interets/activites des elus >20k hab",
+      "Les bulletins de salaire"
+    ],
+    "bonne": 1,
+    "explication": "HATVP: declarations d'interets (mandats, activites 5 ans, participations). Patrimoine non publie en open data complet.",
+    "source": "hatvp.fr/open-data"
+  },
+  {
+    "id": "q05",
+    "question": "Un senateur peut-il etre president de region depuis 2017 ?",
+    "reponses": [
+      "Oui",
+      "Non",
+      "Oui si region <1M hab"
+    ],
+    "bonne": 1,
+    "explication": "Interdit comme depute: senateur + executif local interdit depuis oct 2017.",
+    "source": "LO 2014-125"
+  },
+  {
+    "id": "q06",
+    "question": "Le RNE est tenu par...",
+    "reponses": [
+      "Les partis",
+      "Les prefectures / Ministere Interieur",
+      "L'INSEE"
+    ],
+    "bonne": 1,
+    "explication": "Repertoire National des Elus: renseigne par prefectures sur base candidatures, MAJ trimestrielle.",
+    "source": "data.gouv.fr RNE"
+  },
+  {
+    "id": "q07",
+    "question": "En 2012, combien de deputes cumulaient ?",
+    "reponses": [
+      "~30%",
+      "~58%",
+      "~82%"
+    ],
+    "bonne": 2,
+    "explication": "Vie Publique: 476/577 deputes (82%) et 267/348 senateurs (77%) en cumul en 2012 - record.",
+    "source": "Vie Publique"
+  },
+  {
+    "id": "q08",
+    "question": "Peut-on etre conseiller municipal + communautaire ?",
+    "reponses": [
+      "Oui, toujours autorise",
+      "Non, jamais",
+      "Oui si commune <1000 hab"
+    ],
+    "bonne": 0,
+    "explication": "Cumul simple sans fonction executive reste autorise. Interdiction ne vise que l'executif + Parlement.",
+    "source": "Code electoral"
+  },
+  {
+    "id": "q09",
+    "question": "Le seuil k=5 de Cumuloscope sert a...",
+    "reponses": [
+      "Classer les meilleurs elus",
+      "Eviter la re-identification",
+      "Limiter le poids des fichiers"
+    ],
+    "bonne": 1,
+    "explication": "k-anonymat >=5: si <5 elus dans une case, on grise. RGPD minimisation.",
+    "source": "Methodo Cumuloscope"
+  },
+  {
+    "id": "q10",
+    "question": "Depuis quand les dates RNE sont en ISO 8601 ?",
+    "reponses": [
+      "2000",
+      "2014",
+      "2026"
+    ],
+    "bonne": 2,
+    "explication": "MAJ 11/08/2026: dates en AAAA-MM-JJ pour tout le RNE.",
+    "source": "data.gouv.fr RNE"
+  }
+]

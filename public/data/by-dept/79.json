@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "79",
+    "libelle": "Deux-Sèvres",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3897,
+    "totalMandats": 4655,
+    "avgMandats": 1.1945085963561715,
+    "pctCumulLarge": 12.7,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 496,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3877,
+      "epci": 479,
+      "mai": 251,
+      "cd": 34,
+      "cr": 9,
+      "sen": 2,
+      "dep": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.9,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=79"
+  }
+}

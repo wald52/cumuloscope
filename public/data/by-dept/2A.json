@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "code": "2A",
+    "libelle": "Corse-du-Sud",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 1570,
+    "totalMandats": 1906,
+    "avgMandats": 1.2140127388535031,
+    "pctCumulLarge": 16.8,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 263,
+    "effectifInterdit": 1,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 1568,
+      "epci": 212,
+      "mai": 123,
+      "dep": 2,
+      "sen": 1
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 3.2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=2A"
+  }
+}

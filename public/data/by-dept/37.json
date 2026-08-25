@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "37",
+    "libelle": "Indre-et-Loire",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4459,
+    "totalMandats": 5346,
+    "avgMandats": 1.1989235254541377,
+    "pctCumulLarge": 13.4,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 598,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4433,
+      "epci": 579,
+      "mai": 271,
+      "cd": 38,
+      "dep": 5,
+      "sen": 3,
+      "cr": 17
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=37"
+  }
+}

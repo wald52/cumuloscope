@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "53",
+    "libelle": "Mayenne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3489,
+    "totalMandats": 4198,
+    "avgMandats": 1.2032100888506736,
+    "pctCumulLarge": 13.3,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 465,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3469,
+      "epci": 445,
+      "mai": 239,
+      "cd": 33,
+      "cr": 7,
+      "dep": 3,
+      "sen": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.3,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=53"
+  }
+}

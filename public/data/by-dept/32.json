@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "32",
+    "libelle": "Gers",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5065,
+    "totalMandats": 6321,
+    "avgMandats": 1.2479763079960513,
+    "pctCumulLarge": 16.2,
+    "pctInterdit2014": 0,
+    "effectifCumul": 823,
+    "effectifInterdit": 1,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5042,
+      "mai": 457,
+      "cd": 34,
+      "epci": 778,
+      "cr": 6,
+      "dep": 2,
+      "sen": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 2.6,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=32"
+  }
+}

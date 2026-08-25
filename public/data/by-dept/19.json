@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "19",
+    "libelle": "Corrèze",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3548,
+    "totalMandats": 4343,
+    "avgMandats": 1.2240698985343856,
+    "pctCumulLarge": 14.1,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 502,
+    "effectifInterdit": 2,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3534,
+      "epci": 481,
+      "mai": 277,
+      "cd": 38,
+      "cr": 9,
+      "sen": 2,
+      "dep": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0.5,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=19"
+  }
+}

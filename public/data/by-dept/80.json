@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "80",
+    "libelle": "Somme",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 9437,
+    "totalMandats": 11404,
+    "avgMandats": 1.2084348839673624,
+    "pctCumulLarge": 12.7,
+    "pctInterdit2014": 0,
+    "effectifCumul": 1194,
+    "effectifInterdit": 3,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 9402,
+      "epci": 1160,
+      "cr": 18,
+      "mai": 770,
+      "cd": 46,
+      "sen": 3,
+      "dep": 5
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.9,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=80"
+  }
+}

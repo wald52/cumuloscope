@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "38",
+    "libelle": "Isère",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 8887,
+    "totalMandats": 10463,
+    "avgMandats": 1.1773376842579049,
+    "pctCumulLarge": 11.7,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1039,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 8846,
+      "epci": 1002,
+      "mai": 512,
+      "cd": 56,
+      "cr": 32,
+      "sen": 5,
+      "dep": 10
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.9,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=38"
+  }
+}

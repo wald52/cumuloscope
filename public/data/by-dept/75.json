@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "75",
+    "libelle": "Paris",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 586,
+    "totalMandats": 811,
+    "avgMandats": 1.3839590443686007,
+    "pctCumulLarge": 26.1,
+    "pctInterdit2014": 1.2,
+    "effectifCumul": 153,
+    "effectifInterdit": 7,
+    "kAnonyme": false,
+    "repartition": {
+      "ca": 503,
+      "cm": 167,
+      "epci": 57,
+      "cr": 52,
+      "dep": 19,
+      "sen": 12,
+      "mai": 1
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 12.5,
+      "ecartInterdit": 1.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=75"
+  }
+}

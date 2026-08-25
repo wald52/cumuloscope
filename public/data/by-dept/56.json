@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "56",
+    "libelle": "Morbihan",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4945,
+    "totalMandats": 5868,
+    "avgMandats": 1.1866531850353892,
+    "pctCumulLarge": 13.4,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 661,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4908,
+      "epci": 643,
+      "mai": 248,
+      "cd": 42,
+      "cr": 18,
+      "dep": 6,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=56"
+  }
+}

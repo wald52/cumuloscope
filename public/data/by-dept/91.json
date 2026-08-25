@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "91",
+    "libelle": "Essonne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 4392,
+    "totalMandats": 5224,
+    "avgMandats": 1.1894353369763206,
+    "pctCumulLarge": 13.3,
+    "pctInterdit2014": 0.2,
+    "effectifCumul": 586,
+    "effectifInterdit": 9,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 4367,
+      "epci": 571,
+      "mai": 202,
+      "cd": 43,
+      "dep": 12,
+      "cr": 24,
+      "sen": 5
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.3,
+      "ecartInterdit": 0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=91"
+  }
+}

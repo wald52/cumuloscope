@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cumulo-blue: #0f2a44;
+  --color-cumulo-blue-light: #1a4a7a;
+  --color-cumulo-accent: #f2c744;
+  --color-cumulo-accent-hover: #e6b800;
+  --color-cumulo-bg: #f8f9fb;
+  --color-cumulo-muted: #6b7280;
+  --color-cumulo-border: #e5e7eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}

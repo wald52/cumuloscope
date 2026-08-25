@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "76",
+    "libelle": "Seine-Maritime",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 10464,
+    "totalMandats": 12495,
+    "avgMandats": 1.1940940366972477,
+    "pctCumulLarge": 12,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1256,
+    "effectifInterdit": 9,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 10423,
+      "epci": 1228,
+      "cd": 70,
+      "mai": 721,
+      "cr": 37,
+      "dep": 10,
+      "sen": 6
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.6,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=76"
+  }
+}

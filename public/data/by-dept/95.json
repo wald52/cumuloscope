@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "code": "95",
+    "libelle": "Val-d'Oise",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3884,
+    "totalMandats": 4672,
+    "avgMandats": 1.2028836251287334,
+    "pctCumulLarge": 15.6,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 605,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3859,
+      "epci": 540,
+      "mai": 196,
+      "sen": 5,
+      "cd": 43,
+      "cr": 18,
+      "dep": 10,
+      "ca": 1
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=95"
+  }
+}

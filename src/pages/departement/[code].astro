@@ -1,0 +1,196 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+export async function getStaticPaths() {
+  const agg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/aggregated.json"), "utf-8"));
+  return agg.byDept.map(d => ({ params: { code: d.code }, props: { dept: d, meta: agg.meta } }));
+}
+
+const { dept, meta } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const code = Astro.params.code;
+---
+
+<Layout title={`${dept.libelle} (${dept.code}) — Cumuloscope`} description={`Cumul des mandats en ${dept.libelle}: ${dept.pctCumulLarge}% en cumul large, ${dept.pctInterdit2014}% interdit loi 2014. Données RNE 11/08/2026 anonymisées.`}>
+  <section class="max-w-4xl mx-auto px-4 py-6">
+    <nav class="text-xs text-slate-500"><a href={`${base}`} class="underline">Explorer</a> › Département {dept.code}</nav>
+    <div class="mt-2 bg-white rounded-2xl border border-cumulo-border p-5">
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 class="text-2xl font-extrabold text-cumulo-blue">{dept.libelle} <span class="text-slate-500 font-mono text-lg">({dept.code})</span></h1>
+          <p class="text-sm text-slate-600">MAJ {meta.updated} • k-anonymat ≥{meta.kAnonymity} • Licence Ouverte 2.0</p>
+        </div>
+        <div class="flex gap-2 text-xs">
+          <span class={`px-2 py-1 rounded-full ${dept.kAnonyme ? 'bg-amber-100 border border-amber-200' : 'bg-emerald-50 border border-emerald-200'}`}>{dept.kAnonyme ? 'k-anonyme <5: grisé' : 'Données publiables'}</span>
+        </div>
+      </div>
+
+      <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+        <div class="p-3 rounded-xl bg-slate-50 border">
+          <p class="text-xl font-extrabold">{dept.totalElus.toLocaleString('fr-FR')}</p>
+          <p class="text-xs text-slate-500">élus uniques</p>
+        </div>
+        <div class="p-3 rounded-xl bg-cumulo-blue text-white">
+          <p class="text-xl font-extrabold">{dept.kAnonyme ? '—' : dept.pctCumulLarge + '%'}</p>
+          <p class="text-xs text-white/80">cumul large<br/>≥2 mandats</p>
+        </div>
+        <div class="p-3 rounded-xl bg-amber-100 border border-amber-200">
+          <p class="text-xl font-extrabold">{dept.kAnonyme ? '—' : dept.pctInterdit2014 + '%'}</p>
+          <p class="text-xs text-amber-900">interdit 2014<br/>({dept.effectifInterdit})</p>
+        </div>
+      </div>
+
+      <div class="mt-3 grid md:grid-cols-2 gap-3 text-sm">
+        <div class="p-3 rounded-xl bg-slate-50 border">
+          <p class="font-semibold">Moyenne mandats / élu</p>
+          <p class="text-lg font-mono">{dept.avgMandats.toFixed(2)}</p>
+          <p class="text-xs text-slate-500">Effectif cumul: {dept.effectifCumul} • Interdit: {dept.effectifInterdit}</p>
+        </div>
+        <div class="p-3 rounded-xl bg-white border">
+          <p class="font-semibold">Répartition par type (anonyme)</p>
+          <ul class="mt-1 text-xs space-y-0.5 font-mono">
+            {Object.entries(dept.repartition).map(([k,v])=> <li class="flex justify-between"><span>{k}</span><span>{v}</span></li>)}
+            {Object.keys(dept.repartition).length===0 && <li class="text-slate-500">Aucune donnée</li>}
+          </ul>
+          <p class="text-[10px] text-slate-500 mt-1">cm=conseiller municipal, epci=interco, mai=maire, cd=départemental, cr=régional, dep=député, sen=sénateur</p>
+        </div>
+      </div>
+
+      <div class="mt-3 flex flex-wrap gap-2">
+        <button id="share-dept" class="px-4 py-2 rounded-full bg-cumulo-blue text-white text-sm">Partager cette carte (anonyme)</button>
+        <a href={`${base}`} class="px-4 py-2 rounded-full border text-sm">← Tous les départements</a>
+      </div>
+      <canvas id="shareCanvasDept" width="1200" height="630" class="hidden"></canvas>
+    </div>
+
+    <!-- Détail nominatif — 100% client-side, après consentement, noindex -->
+    <div class="mt-4 bg-white rounded-2xl border border-cumulo-border p-5">
+      <h2 class="font-bold text-cumulo-blue">Détail nominatif (optionnel)</h2>
+      <p class="text-xs text-slate-600">Données publiques RNE, affichées uniquement après consentement explicite. Jamais indexées, lien de partage reste anonyme.</p>
+      <div id="consent-box" class="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200 text-sm">
+        <label class="flex gap-2">
+          <input id="consent-check" type="checkbox" class="mt-1" />
+          <span>Je comprends que je vais afficher des <strong>noms issus du RNE/HATVP</strong> (Licence Ouverte). Données publiques mais personnelles. Affichage informatif, sans jugement. Données du {meta.updated}. <a href={`${base}methodologie/`} class="underline">Méthodologie</a>.</span>
+        </label>
+        <button id="show-noms" class="mt-2 px-4 py-2 rounded-full bg-slate-900 text-white text-sm disabled:opacity-40" disabled>Voir les élus concernés</button>
+        <button id="hide-noms" class="mt-2 ml-2 px-4 py-2 rounded-full border text-sm hidden">Masquer</button>
+      </div>
+      <div id="nominative-status" class="hidden mt-3 text-xs p-2 rounded-xl bg-slate-50 border"></div>
+      <div id="nominative-table" class="hidden mt-3 overflow-auto max-h-[480px] border rounded-xl">
+        <table class="w-full text-xs">
+          <thead class="sticky top-0 bg-slate-100"><tr><th class="text-left p-2">Nom</th><th class="text-left p-2">Mandats</th><th class="text-left p-2">Types</th><th class="text-left p-2">Filtre 2014</th></tr></thead>
+          <tbody id="nominative-body"></tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-[10px] text-slate-500">Source directe HATVP: <a id="hatvp-link" href="#" target="_blank" class="underline">hatvp.fr recherche</a> • Signaler erreur: <a href="mailto:contact@cumuloscope.fr" class="underline">contact</a></p>
+    </div>
+
+    <div class="mt-4 text-xs text-slate-500">
+      <p>Comparaison nationale: écart cumul { (dept.pctCumulLarge - 13.5).toFixed(1) } pts vs moyenne 13.5%. Données agrégées uniquement en home et partage.</p>
+      <p class="mt-1">Page agrégée pré-générée. Détail nominatif chargé à la demande via <code>fetch()</code> (option B, noindex).</p>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ code, dept }}>
+    const base = import.meta.env.BASE_URL || '/cumuloscope/';
+    // Share card anonymized
+    document.getElementById('share-dept').addEventListener('click', ()=>{
+      const c = document.getElementById('shareCanvasDept');
+      const ctx = c.getContext('2d');
+      ctx.fillStyle='#0f2a44'; ctx.fillRect(0,0,1200,630);
+      ctx.fillStyle='#fff'; ctx.font='bold 44px sans-serif'; ctx.fillText(`${dept.libelle} (${dept.code}) — Cumuloscope`,40,80);
+      ctx.font='26px sans-serif'; ctx.fillText(`${dept.totalElus.toLocaleString('fr-FR')} élus • ${dept.pctCumulLarge}% cumul large • ${dept.pctInterdit2014}% interdit 2014`,40,130);
+      ctx.fillStyle='#f2c744'; ctx.font='bold 30px sans-serif'; ctx.fillText(`Moyenne ${dept.avgMandats.toFixed(2)} mandat(s)/élu`,40,260);
+      ctx.fillStyle='#fff'; ctx.font='18px sans-serif'; ctx.fillText('Données RNE 11/08/2026 • Licence Ouverte • anonyme par défaut',40,580);
+      ctx.strokeStyle='#ffffff33'; ctx.strokeRect(20,20,1160,590);
+      c.toBlob(b=>{
+        if(b){
+          const url=URL.createObjectURL(b);
+          const a=document.createElement('a'); a.href=url; a.download=`cumuloscope-${code}.png`; a.click();
+          URL.revokeObjectURL(url);
+          try{ const badges=new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]')); badges.add('pedagogue'); badges.add('cartographe'); localStorage.setItem('cumuloscope:badges', JSON.stringify([...badges])); }catch{}
+        }
+      });
+      // track cartographe
+      try{
+        const viewed = new Set(JSON.parse(localStorage.getItem('cumuloscope:viewedDepts')||'[]'));
+        viewed.add(code); localStorage.setItem('cumuloscope:viewedDepts', JSON.stringify([...viewed]));
+        if(viewed.size>=3){
+          const badges=new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]')); badges.add('cartographe'); localStorage.setItem('cumuloscope:badges', JSON.stringify([...badges]));
+        }
+      }catch{}
+    });
+
+    // Consent + fetch nominative
+    const check = document.getElementById('consent-check');
+    const showBtn = document.getElementById('show-noms');
+    const hideBtn = document.getElementById('hide-noms');
+    const statusEl = document.getElementById('nominative-status');
+    const tableWrap = document.getElementById('nominative-table');
+    const tbody = document.getElementById('nominative-body');
+    const hatvpLink = document.getElementById('hatvp-link');
+    hatvpLink.href = `https://www.hatvp.fr/consulter-les-declarations/?dept=${code}`;
+
+    // restore consent from localStorage (namespaced + path-checked)
+    try{
+      const consent = localStorage.getItem('cumuloscope:consentNominatif');
+      if(consent==='true'){ check.checked=true; showBtn.disabled=false; }
+    }catch{}
+
+    check.addEventListener('change', ()=>{
+      showBtn.disabled = !check.checked;
+      if(check.checked){
+        try{ localStorage.setItem('cumuloscope:consentNominatif','true'); }catch{}
+      }
+    });
+
+    let loaded=false;
+    showBtn.addEventListener('click', async ()=>{
+      if(!check.checked) return;
+      statusEl.classList.remove('hidden');
+      statusEl.textContent='Chargement…';
+      try{
+        const url = base + `data/by-dept/${code}-nominative.json`;
+        const res = await fetch(url);
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        const json = await res.json();
+        statusEl.textContent = json.meta.count===0 ? 'Aucun cumul large à afficher (k-anonymat ou <5).' : `${json.meta.count} élus en cumul large (max 200) — ${json.meta.warning}`;
+        tbody.innerHTML='';
+        if(json.data.length===0){
+          tableWrap.classList.add('hidden');
+        } else {
+          json.data.forEach(row=>{
+            const tr=document.createElement('tr');
+            tr.className='border-t';
+            const mandats = row.mandats.map(m=>`${m.type}:${m.fonction||''} (${m.dept})`).join(', ');
+            const interdit = row.interdit2014 ? '<span class="px-1.5 py-0.5 rounded bg-red-100 border border-red-200">interdit 2014</span>' : '<span class="px-1.5 py-0.5 rounded bg-slate-100 border">large seul</span>';
+            tr.innerHTML = `<td class="p-2 font-medium">${row.prenom} ${row.nom} ${row.mock?' <span class="text-[10px] text-amber-700">(mock)</span>':''}</td><td class="p-2">${mandats}</td><td class="p-2 font-mono">${row.typesDistincts.join(' + ')}</td><td class="p-2">${interdit}</td>`;
+            tbody.appendChild(tr);
+          });
+          tableWrap.classList.remove('hidden');
+        }
+        hideBtn.classList.remove('hidden');
+        showBtn.classList.add('hidden');
+        loaded=true;
+        // badges
+        try{
+          const badges=new Set(JSON.parse(localStorage.getItem('cumuloscope:badges')||'[]'));
+          // no badge for viewing nominative, but viewed dept already tracked
+        }catch{}
+      }catch(e){
+        statusEl.textContent='Erreur chargement: '+e.message;
+      }
+    });
+    hideBtn.addEventListener('click', ()=>{
+      tableWrap.classList.add('hidden');
+      statusEl.classList.add('hidden');
+      hideBtn.classList.add('hidden');
+      showBtn.classList.remove('hidden');
+    });
+
+    // Chronologue badge if history visited — set flag
+    try{ localStorage.setItem('cumuloscope:visitedDept','1'); }catch{}
+  </script>
+</Layout>

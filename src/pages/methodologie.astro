@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import fs from "node:fs";
+import path from "node:path";
+const agg = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/aggregated.json"), "utf-8"));
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Méthodologie — Cumuloscope" description="Méthodologie, sources, limites et mentions légales du Cumuloscope.">
+  <section class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-extrabold text-cumulo-blue">Méthodologie & transparence</h1>
+    <p class="mt-2 text-slate-600">Comment on compte, ce qu'on affiche, ce qu'on ne montre pas.</p>
+
+    <div class="mt-6 bg-white rounded-2xl border border-cumulo-border p-5">
+      <h2 class="font-bold text-cumulo-blue">1. Sources (Licence Ouverte 2.0)</h2>
+      <ul class="mt-2 text-sm list-disc pl-5 space-y-1">
+        <li><strong>RNE — Répertoire National des Élus</strong> (Ministère de l'Intérieur, data.gouv.fr, MAJ 11/08/2026) — 12 CSV, 580k lignes, MAJ trimestrielle. Seule source exhaustive des mandats en cours.</li>
+        <li><strong>data.assemblee-nationale.fr</strong> (AMO historique XIe–XVIIe, 1997–2026) — complète le RNE pour députés.</li>
+        <li><strong>data.senat.fr</strong> (ODSEN_*, 1959–2026) — complète RNE pour sénateurs + mandats locaux historiques.</li>
+        <li><strong>HATVP</strong> (hatvp.fr/open-data — liste.csv + declarations.xml) — déclarations d'intérêts/activités, croisement via <code>id_origine</code> quand présent.</li>
+      </ul>
+      <p class="mt-3 text-xs text-slate-500">Traitement: téléchargement trimestriel, parsing ; , normalisation UPPER(unidecode) + ISO dates, jointure pivot <code>NOM|PRENOM|DATE_NAISSANCE</code>. Généré le {new Date(agg.meta.generatedAt).toLocaleDateString('fr-FR')}.</p>
+    </div>
+
+    <div class="mt-4 bg-white rounded-2xl border border-cumulo-border p-5">
+      <h2 class="font-bold text-cumulo-blue">2. Définitions</h2>
+      <div class="mt-2 grid md:grid-cols-2 gap-3 text-sm">
+        <div class="p-3 rounded-xl bg-slate-50 border">
+          <p class="font-semibold">Cumul large (par défaut)</p>
+          <p>≥2 types de mandats distincts détenus simultanément (ex: conseiller municipal + communautaire, maire + départemental). C'est l'indicateur principal.</p>
+          <p class="mt-1 text-xs text-slate-500">National 2026: {agg.national.pctCumulLarge}% ({agg.national.effectifCumulLarge} élus)</p>
+        </div>
+        <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+          <p class="font-semibold">Interdit loi 2014 (filtre)</p>
+          <p>(Député/Sénateur/euro) × (maire/adjoint, président/vp département/région/interco) simultané. LO 2014-125 / 2014-126, applicable 2017.</p>
+          <p class="mt-1 text-xs text-slate-500">National 2026: {agg.national.pctInterdit2014}% ({agg.national.effectifInterdit} cas)</p>
+        </div>
+      </div>
+      <p class="mt-3 text-xs text-slate-600">Avant 1985 cumul illimité, 1985/2000 max 2 mandats, 2014 rupture. Voir <a href={`${base}histoire/`} class="underline">page Histoire</a>.</p>
+    </div>
+
+    <div class="mt-4 bg-white rounded-2xl border border-cumulo-border p-5">
+      <h2 class="font-bold text-cumulo-blue">3. Anonymisation & éthique</h2>
+      <ul class="mt-2 text-sm list-disc pl-5 space-y-1">
+        <li><strong>Par défaut 100% agrégats</strong>: cartes, timelines, listes = % et effectifs, jamais de noms. Conforme RGPD art.5 minimisation.</li>
+        <li><strong>k-anonymat ≥{agg.meta.kAnonymity}</strong>: si &lt;5 élus dans une case, on affiche <code>&lt;5</code> ou on grise (ex: carte). Évite ré-identification en petite commune.</li>
+        <li><strong>Détail nominatif 100% client-side, après consentement</strong>: bouton “Voir les élus concernés” → modal → <code>fetch(/by-dept/XX-nominative.json)</code>. Pages nominatives en <code>noindex</code>, jamais indexées, lien de partage toujours anonyme.</li>
+        <li><strong>Pas de photo, pas de scoring individuel, pas de tri “pire cumul”.</strong> Données brutes + source, pas de jugement.</li>
+        <li><strong>Sources datées</strong> sur chaque chiffre + lien direct RNE/HATVP.</li>
+      </ul>
+    </div>
+
+    <div class="mt-4 bg-white rounded-2xl border border-cumulo-border p-5">
+      <h2 class="font-bold text-cumulo-blue">4. Limites & couverture Ve République</h2>
+      <ul class="mt-2 text-sm list-disc pl-5 space-y-1">
+        <li><strong>1997–2026 exhaustif</strong> (RNE + AN/Sénat). <strong>1958–1996 partiel</strong> (AN open data commence XIe 1997, Sénat complet mais local partiel). Timeline avant 1997 = estimation Vie Publique / Wikidata, indiquée “couverture partielle”.</li>
+        <li>RNE = snapshot, pas de date de fin → fin inférée au snapshot suivant (approx 3 mois). HATVP liaison fragile sans <code>id_origine</code> (30% sans).</li>
+        <li>Fonction EPCI président vs conseiller: sur-approximation légère (on compte tout epci).</li>
+        <li>Données déclaratives, rectification via préfecture (<code>pref-rne-contact@…gouv.fr</code>), report au trimestre suivant.</li>
+      </ul>
+      <p class="mt-2 text-xs text-slate-500">{agg.meta.methode}</p>
+    </div>
+
+    <div class="mt-4 bg-white rounded-2xl border border-cumulo-border p-5">
+      <h2 class="font-bold text-cumulo-blue">5. Mentions légales</h2>
+      <p class="text-sm">Éditeur: wald52 (site perso, non-officiel). Hébergement: GitHub Pages. Code source: à publier sur GitHub (Licence MIT, données LO 2.0). Pas de cookies, pas de pub, stockage local uniquement (<code>cumuloscope:*</code> namespacé). Contact: <a href="mailto:contact@cumuloscope.fr" class="underline">contact@cumuloscope.fr</a> — droit d'opposition & rectification 1 mois.</p>
+      <p class="mt-2 text-xs text-slate-500">Base légale réutilisation: mission d'information du public, art.6.1.f RGPD. Ne pas réutiliser hors contexte informatif. Pour toute phrase nominative: vérif source + conditionnel si doute (risque diffamation L.1881).</p>
+    </div>
+
+    <div class="mt-6 flex gap-2">
+      <a href={`${base}`} class="px-4 py-2 rounded-full bg-cumulo-blue text-white text-sm">← Retour explorer</a>
+      <a href={`${base}quiz/`} class="px-4 py-2 rounded-full border text-sm">Faire le quiz</a>
+    </div>
+  </section>
+</Layout>

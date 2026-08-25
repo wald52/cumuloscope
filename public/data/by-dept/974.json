@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "974",
+    "libelle": "La Réunion",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 964,
+    "totalMandats": 1332,
+    "avgMandats": 1.3817427385892116,
+    "pctCumulLarge": 31.8,
+    "pctInterdit2014": 0.4,
+    "effectifCumul": 307,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 911,
+      "epci": 294,
+      "cd": 47,
+      "mai": 24,
+      "cr": 45,
+      "sen": 4,
+      "dep": 7
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 18.2,
+      "ecartInterdit": 0.3
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=974"
+  }
+}

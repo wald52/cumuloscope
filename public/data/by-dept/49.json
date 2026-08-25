@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "49",
+    "libelle": "Maine-et-Loire",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3977,
+    "totalMandats": 4686,
+    "avgMandats": 1.1782750817198893,
+    "pctCumulLarge": 12.8,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 508,
+    "effectifInterdit": 5,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3942,
+      "epci": 498,
+      "mai": 175,
+      "cd": 41,
+      "cr": 19,
+      "dep": 7,
+      "sen": 4
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.8,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=49"
+  }
+}

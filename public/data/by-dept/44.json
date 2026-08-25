@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "44",
+    "libelle": "Loire-Atlantique",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5098,
+    "totalMandats": 6102,
+    "avgMandats": 1.1969399764613573,
+    "pctCumulLarge": 15.2,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 774,
+    "effectifInterdit": 3,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5030,
+      "epci": 755,
+      "mai": 205,
+      "cd": 62,
+      "cr": 35,
+      "sen": 5,
+      "dep": 10
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 1.6,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=44"
+  }
+}

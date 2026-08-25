@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "14",
+    "libelle": "Calvados",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 7774,
+    "totalMandats": 9278,
+    "avgMandats": 1.1934653974787754,
+    "pctCumulLarge": 12.5,
+    "pctInterdit2014": 0,
+    "effectifCumul": 968,
+    "effectifInterdit": 3,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 7736,
+      "epci": 935,
+      "mai": 524,
+      "cd": 50,
+      "cr": 24,
+      "dep": 6,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -1.1,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=14"
+  }
+}

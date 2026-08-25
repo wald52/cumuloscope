@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "25",
+    "libelle": "Doubs",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 7174,
+    "totalMandats": 8634,
+    "avgMandats": 1.203512684694731,
+    "pctCumulLarge": 13,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 933,
+    "effectifInterdit": 4,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 7139,
+      "epci": 868,
+      "mai": 562,
+      "cd": 38,
+      "cr": 19,
+      "dep": 5,
+      "sen": 3
+    },
+    "comparaisonNationale": {
+      "ecartCumul": -0.6,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=25"
+  }
+}

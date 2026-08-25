@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "12",
+    "libelle": "Aveyron",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 3921,
+    "totalMandats": 4912,
+    "avgMandats": 1.252741647538893,
+    "pctCumulLarge": 17.5,
+    "pctInterdit2014": 0,
+    "effectifCumul": 687,
+    "effectifInterdit": 1,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 3904,
+      "epci": 663,
+      "mai": 285,
+      "cd": 46,
+      "dep": 3,
+      "sen": 2,
+      "cr": 9
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 3.9,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=12"
+  }
+}

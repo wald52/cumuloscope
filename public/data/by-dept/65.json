@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "65",
+    "libelle": "Hautes-Pyrenees",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 5052,
+    "totalMandats": 6130,
+    "avgMandats": 1.2133808392715757,
+    "pctCumulLarge": 13.7,
+    "pctInterdit2014": 0,
+    "effectifCumul": 692,
+    "effectifInterdit": 1,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 5032,
+      "mai": 479,
+      "epci": 574,
+      "cd": 34,
+      "cr": 7,
+      "sen": 2,
+      "dep": 2
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0.1,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=65"
+  }
+}

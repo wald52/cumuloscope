@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "82",
+    "libelle": "Tarn-et-Garonne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 2800,
+    "totalMandats": 3481,
+    "avgMandats": 1.2432142857142856,
+    "pctCumulLarge": 16.8,
+    "pctInterdit2014": 0,
+    "effectifCumul": 471,
+    "effectifInterdit": 1,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 2781,
+      "epci": 461,
+      "mai": 198,
+      "cd": 30,
+      "dep": 2,
+      "sen": 2,
+      "cr": 7
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 3.2,
+      "ecartInterdit": -0.1
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=82"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "code": "77",
+    "libelle": "Seine-et-Marne",
+    "updated": "2026-08-11",
+    "kAnonymity": 5
+  },
+  "aggregates": {
+    "totalElus": 8966,
+    "totalMandats": 10556,
+    "avgMandats": 1.177336604952041,
+    "pctCumulLarge": 13.8,
+    "pctInterdit2014": 0.1,
+    "effectifCumul": 1236,
+    "effectifInterdit": 8,
+    "kAnonyme": false,
+    "repartition": {
+      "cm": 8944,
+      "epci": 1020,
+      "mai": 508,
+      "cd": 46,
+      "dep": 11,
+      "cr": 21,
+      "sen": 6
+    },
+    "comparaisonNationale": {
+      "ecartCumul": 0.2,
+      "ecartInterdit": 0
+    }
+  },
+  "hatvp": {
+    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=77"
+  }
+}
