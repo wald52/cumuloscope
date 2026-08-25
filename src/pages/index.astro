@@ -283,47 +283,86 @@ const lowCumul = [...byDept].filter(d=>!d.kAnonyme).sort((a,b)=>a.pctCumulLarge 
     const byDeptData = byDept;
     const timelineData = timeline;
 
-    // Map
-    const map = L.map('map', { zoomControl: false, attributionControl: true }).setView([46.5, 2.5], 5.2);
+    // Map — vraie choroplèthe GeoJSON (96 départements métropole) + cercles pour DOM
+    const map = L.map('map', { zoomControl: false, attributionControl: true }).setView([46.6, 2.5], 5.5);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OSM & Carto',
+      attribution: '&copy; OSM & Carto &bull; Contours gregoiredavid/france-geojson',
       maxZoom: 8,
       minZoom: 5
     }).addTo(map);
 
-    // Approx dept centroids (simplified) — for MVP we use circle markers clustered, not TopoJSON (keeps bundle light)
-    const centroids = {
-      "01":[46.2,5.3],"02":[49.5,3.5],"03":[46.3,3.1],"04":[44.1,6.2],"05":[44.6,6.2],"06":[43.9,7.1],"07":[44.6,4.3],"08":[49.7,4.6],"09":[43.0,1.5],"10":[48.3,4.0],"11":[43.1,2.3],"12":[44.3,2.6],"13":[43.4,5.1],"14":[49.1,-0.3],"15":[45.0,2.7],"16":[45.7,0.2],"17":[45.8,-0.8],"18":[47.0,2.4],"19":[45.3,1.9],"21":[47.3,4.9],"22":[48.4,-2.8],"23":[46.0,2.0],"24":[45.1,0.7],"25":[47.2,6.1],"26":[44.9,5.0],"27":[49.0,1.0],"28":[48.5,1.3],"29":[48.3,-3.9],"2A":[41.9,8.7],"2B":[42.4,9.3],"30":[44.0,4.2],"31":[43.5,1.4],"32":[43.7,0.6],"33":[44.8,-0.5],"34":[43.6,3.2],"35":[48.1,-1.6],"36":[46.8,1.7],"37":[47.3,0.7],"38":[45.2,5.7],"39":[46.7,5.5],"40":[43.9,-0.5],"41":[47.6,1.3],"42":[45.4,4.3],"43":[45.0,3.8],"44":[47.2,-1.5],"45":[47.9,2.1],"46":[44.6,1.6],"47":[44.3,0.5],"48":[44.7,3.5],"49":[47.2,-0.5],"50":[49.1,-1.2],"51":[49.0,4.0],"52":[48.1,5.1],"53":[48.3,-0.6],"54":[48.7,6.1],"55":[49.1,5.3],"56":[47.8,-2.8],"57":[49.0,6.2],"58":[47.0,3.4],"59":[50.4,3.0],"60":[49.3,2.5],"61":[48.6,0.1],"62":[50.4,2.3],"63":[45.7,3.1],"64":[43.3,-0.4],"65":[43.1,0.1],"66":[42.6,2.6],"67":[48.6,7.7],"68":[47.9,7.3],"69":[45.7,4.8],"70":[47.6,6.1],"71":[46.6,4.4],"72":[48.0,0.2],"73":[45.5,6.0],"74":[46.0,6.4],"75":[48.856,2.352],"76":[49.6,1.0],"77":[48.8,2.9],"78":[48.8,1.9],"79":[46.4,-0.3],"80":[49.9,2.3],"81":[43.9,2.1],"82":[44.0,1.3],"83":[43.5,6.1],"84":[44.0,5.0],"85":[46.6,-1.4],"86":[46.6,0.3],"87":[45.8,1.2],"88":[48.1,6.4],"89":[47.8,3.5],"90":[47.6,6.9],"91":[48.5,2.3],"92":[48.8,2.2],"93":[48.9,2.5],"94":[48.8,2.5],"95":[49.0,2.1],"971":[16.2,-61.5],"972":[14.6,-61.0],"973":[3.9,-53.1],"974":[-21.1,55.5],"976":[-12.8,45.1]
+    const centroidsDOM = {
+      "971":[16.2,-61.5],"972":[14.6,-61.0],"973":[3.9,-53.1],"974":[-21.1,55.5],"976":[-12.8,45.1]
     };
-    function colorFor(pct, interditOnly){
-      const v = interditOnly ? (byDeptData.find(d=>d.code===pct.code)?.pctInterdit2014||0) : pct.pctCumulLarge;
-      // pct is object or number handling
-      const val = typeof v==='number'? v : pct;
-      if(val < 10) return '#fee8c8';
-      if(val < 14) return '#fdbb84';
-      if(val < 18) return '#fc8d59';
+    let interditOnly = false;
+    let geoLayer = null;
+    let domMarkers = [];
+    const byCode = new Map(byDeptData.map(d=>[d.code, d]));
+    function colorForVal(v){
+      if(v < 10) return '#fee8c8';
+      if(v < 14) return '#fdbb84';
+      if(v < 18) return '#fc8d59';
       return '#ef6548';
     }
-    let markers = [];
-    let interditOnly = false;
-    function renderMarkers(){
-      markers.forEach(m=> map.removeLayer(m));
-      markers=[];
-      byDeptData.forEach(d=>{
-        const c = centroids[d.code];
-        if(!c) return;
-        const val = interditOnly ? d.pctInterdit2014 : d.pctCumulLarge;
-        const col = val < 10 ? '#fee8c8' : val < 14 ? '#fdbb84' : val < 18 ? '#fc8d59' : '#ef6548';
-        const radius = 6 + (d.totalElus/15000)*8;
-        const mk = L.circleMarker(c, { radius: Math.min(18, radius), fillColor: col, color: '#fff', weight: 1, fillOpacity: 0.9 })
+    function valFor(d){ return interditOnly ? d.pctInterdit2014 : d.pctCumulLarge; }
+    function styleFor(feature){
+      const code = feature.properties.code;
+      const d = byCode.get(code);
+      const v = d ? valFor(d) : 0;
+      return { fillColor: colorForVal(v), weight: 0.8, color: '#fff', fillOpacity: 0.88, opacity: 1 };
+    }
+    function renderDOM(){
+      domMarkers.forEach(m=> map.removeLayer(m)); domMarkers=[];
+      ["971","972","973","974","976"].forEach(code=>{
+        const d = byCode.get(code); if(!d) return;
+        const c = centroidsDOM[code]; if(!c) return;
+        const v = valFor(d);
+        const col = colorForVal(v);
+        const mk = L.circleMarker(c, { radius: 9, fillColor: col, color: '#0f2a44', weight: 1.5, fillOpacity: 0.95 })
           .addTo(map)
-          .bindTooltip(`<b>${d.code} — ${d.libelle}</b><br/>${d.totalElus.toLocaleString('fr-FR')} élus<br/>${d.pctCumulLarge}% cumul large<br/>${d.pctInterdit2014}% interdit 2014`, { direction: 'top' });
+          .bindTooltip(`<b>${d.code} — ${d.libelle}</b><br/>${d.totalElus.toLocaleString('fr-FR')} élus<br/>${d.pctCumulLarge}% cumul large<br/>${d.pctInterdit2014}% interdit`, {direction:'top'});
         mk.on('click', ()=> location.href = base + 'departement/' + d.code + '/');
-        markers.push(mk);
+        domMarkers.push(mk);
       });
     }
-    renderMarkers();
-    window.addEventListener('cumulo:filter', e=>{ interditOnly = e.detail.interditOnly; renderMarkers(); });
+    // Fetch GeoJSON contours
+    fetch(base + 'topo/departements.geojson')
+      .then(r=> r.json())
+      .then(geo=>{
+        geoLayer = L.geoJSON(geo, {
+          style: styleFor,
+          onEachFeature: (feature, layer)=>{
+            const code = feature.properties.code;
+            const d = byCode.get(code);
+            if(!d) return;
+            layer.bindTooltip(`<b>${d.code} — ${d.libelle}</b><br/>${d.totalElus.toLocaleString('fr-FR')} élus<br/>${d.pctCumulLarge}% cumul large<br/>${d.pctInterdit2014}% interdit 2014`, {sticky:true});
+            layer.on('click', ()=> location.href = base + 'departement/' + code + '/');
+            layer.on('mouseover', e=>{ e.target.setStyle({weight:2, color:'#0f2a44'}); });
+            layer.on('mouseout', e=>{ geoLayer.resetStyle(e.target); });
+          }
+        }).addTo(map);
+        try{ map.fitBounds(geoLayer.getBounds(), {padding:[10,10]}); }catch(e){}
+        renderDOM();
+      })
+      .catch(err=>{
+        console.warn('GeoJSON load fail, fallback markers', err);
+        // Fallback to old circleMarkers for all
+        const centroidsAll = {
+          "01":[46.2,5.3],"02":[49.5,3.5],"03":[46.3,3.1],"04":[44.1,6.2],"05":[44.6,6.2],"06":[43.9,7.1],"07":[44.6,4.3],"08":[49.7,4.6],"09":[43.0,1.5],"10":[48.3,4.0],"11":[43.1,2.3],"12":[44.3,2.6],"13":[43.4,5.1],"14":[49.1,-0.3],"15":[45.0,2.7],"16":[45.7,0.2],"17":[45.8,-0.8],"18":[47.0,2.4],"19":[45.3,1.9],"21":[47.3,4.9],"22":[48.4,-2.8],"23":[46.0,2.0],"24":[45.1,0.7],"25":[47.2,6.1],"26":[44.9,5.0],"27":[49.0,1.0],"28":[48.5,1.3],"29":[48.3,-3.9],"2A":[41.9,8.7],"2B":[42.4,9.3],"30":[44.0,4.2],"31":[43.5,1.4],"32":[43.7,0.6],"33":[44.8,-0.5],"34":[43.6,3.2],"35":[48.1,-1.6],"36":[46.8,1.7],"37":[47.3,0.7],"38":[45.2,5.7],"39":[46.7,5.5],"40":[43.9,-0.5],"41":[47.6,1.3],"42":[45.4,4.3],"43":[45.0,3.8],"44":[47.2,-1.5],"45":[47.9,2.1],"46":[44.6,1.6],"47":[44.3,0.5],"48":[44.7,3.5],"49":[47.2,-0.5],"50":[49.1,-1.2],"51":[49.0,4.0],"52":[48.1,5.1],"53":[48.3,-0.6],"54":[48.7,6.1],"55":[49.1,5.3],"56":[47.8,-2.8],"57":[49.0,6.2],"58":[47.0,3.4],"59":[50.4,3.0],"60":[49.3,2.5],"61":[48.6,0.1],"62":[50.4,2.3],"63":[45.7,3.1],"64":[43.3,-0.4],"65":[43.1,0.1],"66":[42.6,2.6],"67":[48.6,7.7],"68":[47.9,7.3],"69":[45.7,4.8],"70":[47.6,6.1],"71":[46.6,4.4],"72":[48.0,0.2],"73":[45.5,6.0],"74":[46.0,6.4],"75":[48.856,2.352],"76":[49.6,1.0],"77":[48.8,2.9],"78":[48.8,1.9],"79":[46.4,-0.3],"80":[49.9,2.3],"81":[43.9,2.1],"82":[44.0,1.3],"83":[43.5,6.1],"84":[44.0,5.0],"85":[46.6,-1.4],"86":[46.6,0.3],"87":[45.8,1.2],"88":[48.1,6.4],"89":[47.8,3.5],"90":[47.6,6.9],"91":[48.5,2.3],"92":[48.8,2.2],"93":[48.9,2.5],"94":[48.8,2.5],"95":[49.0,2.1],"971":[16.2,-61.5],"972":[14.6,-61.0],"973":[3.9,-53.1],"974":[-21.1,55.5],"976":[-12.8,45.1]
+        };
+        Object.entries(centroidsAll).forEach(([code,c])=>{
+          const d=byCode.get(code); if(!d) return;
+          const v=valFor(d); const col=colorForVal(v);
+          const mk=L.circleMarker(c,{radius:Math.min(14,6+(d.totalElus/15000)*8), fillColor:col, color:'#fff', weight:1, fillOpacity:0.9}).addTo(map)
+            .bindTooltip(`<b>${d.code} — ${d.libelle}</b><br/>${d.totalElus} élus<br/>${d.pctCumulLarge}% cumul`,{direction:'top'});
+          mk.on('click',()=> location.href = base + 'departement/'+code+'/');
+        });
+      });
+    window.addEventListener('cumulo:filter', e=>{
+      interditOnly = e.detail.interditOnly;
+      if(geoLayer) geoLayer.setStyle(styleFor);
+      renderDOM();
+    });
 
     // Timeline Chart
     const ctx = document.getElementById('timelineChart');

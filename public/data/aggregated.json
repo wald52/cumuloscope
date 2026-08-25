@@ -1,12 +1,12 @@
 {
   "meta": {
     "updated": "2026-08-11",
-    "generatedAt": "2026-08-25T11:17:46.894Z",
+    "generatedAt": "2026-08-25T11:37:00.101Z",
     "sources": [
       "RNE - Ministere de l'Interieur (data.gouv.fr/datasets/5c34c4d1634f4173183a64f1) - 11/08/2026",
       "data.assemblee-nationale.fr (AMO historique XIe-XVIIe)",
       "data.senat.fr (ODSEN_* 1959-2026)",
-      "HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - id_origine)"
+      "HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - 10699 declarations, 4428 avec id_origine)"
     ],
     "licence": "Licence Ouverte 2.0 Etalab",
     "kAnonymity": 5,
@@ -1387,7 +1387,7 @@
     },
     {
       "code": "65",
-      "libelle": "Hautes-Pyrenees",
+      "libelle": "Hautes-Pyrénées",
       "totalElus": 5052,
       "totalMandats": 6130,
       "avgMandats": 1.2133808392715757,

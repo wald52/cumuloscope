@@ -29,7 +29,18 @@
     }
   },
   "hatvp": {
-    "note": "HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.",
-    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=26"
+    "count": 138,
+    "dia": 17,
+    "dsp": 22,
+    "withId": 39,
+    "byType": {
+      "departement": 69,
+      "epci": 26,
+      "senateur": 20,
+      "commune": 4,
+      "depute": 19
+    },
+    "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=26",
+    "note": "138 declarations HATVP, dont 39 avec id_origine joignable"
   }
 }

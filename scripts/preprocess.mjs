@@ -10,6 +10,7 @@ const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DATA = path.join(ROOT, "public", "data");
 const BY_DEPT = path.join(PUBLIC_DATA, "by-dept");
 const CACHE_DIR = path.join(ROOT, ".cache", "rne");
+const HATVP_CACHE = path.join(ROOT, ".cache", "hatvp");
 const K_ANONYMITY = 5;
 const RNE_RESOURCES = [
   { key: "ca",  id: "3b6b2281-b9d9-4959-ae9d-c2c166dff118", label: "conseillers d'arrondissement" },
@@ -24,9 +25,9 @@ const RNE_RESOURCES = [
   { key: "mai", id: "2876a346-d50c-4911-934e-19ee07b0e503", label: "maires" },
 ];
 const DEPARTEMENTS = [
-  ["01","Ain"],["02","Aisne"],["03","Allier"],["04","Alpes-de-Haute-Provence"],["05","Hautes-Alpes"],["06","Alpes-Maritimes"],["07","Ardèche"],["08","Ardennes"],["09","Ariège"],["10","Aube"],["11","Aude"],["12","Aveyron"],["13","Bouches-du-Rhône"],["14","Calvados"],["15","Cantal"],["16","Charente"],["17","Charente-Maritime"],["18","Cher"],["19","Corrèze"],["21","Côte-d'Or"],["22","Côtes-d'Armor"],["23","Creuse"],["24","Dordogne"],["25","Doubs"],["26","Drôme"],["27","Eure"],["28","Eure-et-Loir"],["29","Finistère"],["2A","Corse-du-Sud"],["2B","Haute-Corse"],["30","Gard"],["31","Haute-Garonne"],["32","Gers"],["33","Gironde"],["34","Hérault"],["35","Ille-et-Vilaine"],["36","Indre"],["37","Indre-et-Loire"],["38","Isère"],["39","Jura"],["40","Landes"],["41","Loir-et-Cher"],["42","Loire"],["43","Haute-Loire"],["44","Loire-Atlantique"],["45","Loiret"],["46","Lot"],["47","Lot-et-Garonne"],["48","Lozère"],["49","Maine-et-Loire"],["50","Manche"],["51","Marne"],["52","Haute-Marne"],["53","Mayenne"],["54","Meurthe-et-Moselle"],["55","Meuse"],["56","Morbihan"],["57","Moselle"],["58","Nièvre"],["59","Nord"],["60","Oise"],["61","Orne"],["62","Pas-de-Calais"],["63","Puy-de-Dôme"],["64","Pyrénées-Atlantiques"],["65","Hautes-Pyrenees"],["66","Pyrénées-Orientales"],["67","Bas-Rhin"],["68","Haut-Rhin"],["69","Rhône"],["70","Haute-Saône"],["71","Saône-et-Loire"],["72","Sarthe"],["73","Savoie"],["74","Haute-Savoie"],["75","Paris"],["76","Seine-Maritime"],["77","Seine-et-Marne"],["78","Yvelines"],["79","Deux-Sèvres"],["80","Somme"],["81","Tarn"],["82","Tarn-et-Garonne"],["83","Var"],["84","Vaucluse"],["85","Vendée"],["86","Vienne"],["87","Haute-Vienne"],["88","Vosges"],["89","Yonne"],["90","Territoire de Belfort"],["91","Essonne"],["92","Hauts-de-Seine"],["93","Seine-Saint-Denis"],["94","Val-de-Marne"],["95","Val-d'Oise"],["971","Guadeloupe"],["972","Martinique"],["973","Guyane"],["974","La Réunion"],["976","Mayotte"],
+  ["01","Ain"],["02","Aisne"],["03","Allier"],["04","Alpes-de-Haute-Provence"],["05","Hautes-Alpes"],["06","Alpes-Maritimes"],["07","Ardèche"],["08","Ardennes"],["09","Ariège"],["10","Aube"],["11","Aude"],["12","Aveyron"],["13","Bouches-du-Rhône"],["14","Calvados"],["15","Cantal"],["16","Charente"],["17","Charente-Maritime"],["18","Cher"],["19","Corrèze"],["21","Côte-d'Or"],["22","Côtes-d'Armor"],["23","Creuse"],["24","Dordogne"],["25","Doubs"],["26","Drôme"],["27","Eure"],["28","Eure-et-Loir"],["29","Finistère"],["2A","Corse-du-Sud"],["2B","Haute-Corse"],["30","Gard"],["31","Haute-Garonne"],["32","Gers"],["33","Gironde"],["34","Hérault"],["35","Ille-et-Vilaine"],["36","Indre"],["37","Indre-et-Loire"],["38","Isère"],["39","Jura"],["40","Landes"],["41","Loir-et-Cher"],["42","Loire"],["43","Haute-Loire"],["44","Loire-Atlantique"],["45","Loiret"],["46","Lot"],["47","Lot-et-Garonne"],["48","Lozère"],["49","Maine-et-Loire"],["50","Manche"],["51","Marne"],["52","Haute-Marne"],["53","Mayenne"],["54","Meurthe-et-Moselle"],["55","Meuse"],["56","Morbihan"],["57","Moselle"],["58","Nièvre"],["59","Nord"],["60","Oise"],["61","Orne"],["62","Pas-de-Calais"],["63","Puy-de-Dôme"],["64","Pyrénées-Atlantiques"],["65","Hautes-Pyrénées"],["66","Pyrénées-Orientales"],["67","Bas-Rhin"],["68","Haut-Rhin"],["69","Rhône"],["70","Haute-Saône"],["71","Saône-et-Loire"],["72","Sarthe"],["73","Savoie"],["74","Haute-Savoie"],["75","Paris"],["76","Seine-Maritime"],["77","Seine-et-Marne"],["78","Yvelines"],["79","Deux-Sèvres"],["80","Somme"],["81","Tarn"],["82","Tarn-et-Garonne"],["83","Var"],["84","Vaucluse"],["85","Vendée"],["86","Vienne"],["87","Haute-Vienne"],["88","Vosges"],["89","Yonne"],["90","Territoire de Belfort"],["91","Essonne"],["92","Hauts-de-Seine"],["93","Seine-Saint-Denis"],["94","Val-de-Marne"],["95","Val-d'Oise"],["971","Guadeloupe"],["972","Martinique"],["973","Guyane"],["974","La Réunion"],["976","Mayotte"],
 ];
-function ensureDirs(){ fs.mkdirSync(PUBLIC_DATA,{recursive:true}); fs.mkdirSync(BY_DEPT,{recursive:true}); fs.mkdirSync(CACHE_DIR,{recursive:true}); }
+function ensureDirs(){ fs.mkdirSync(PUBLIC_DATA,{recursive:true}); fs.mkdirSync(BY_DEPT,{recursive:true}); fs.mkdirSync(CACHE_DIR,{recursive:true}); fs.mkdirSync(HATVP_CACHE,{recursive:true}); }
 function normalize(str){ if(!str) return ""; return str.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().trim().replace(/\s+/g," "); }
 function pivotKey(nom, prenom, dateNaissance){
   const n=normalize(nom); const p=normalize(prenom);
@@ -82,6 +83,72 @@ async function fetchRneResource(resource, destPath){
     console.warn(`  FAIL ${resource.key}: ${e.message}`);
     if(fs.existsSync(destPath)){ console.log(`  using cached ${destPath}`); return true; }
     return false;
+  }
+}
+async function fetchHatvpStats(){
+  const HATVP_URL = "https://www.hatvp.fr/livraison/opendata/liste.csv";
+  const dest = path.join(HATVP_CACHE, "liste.csv");
+  console.log("-> Fetch HATVP liste.csv ...");
+  try{
+    const res = await fetch(HATVP_URL, {redirect:"follow", headers:{"User-Agent":"Cumuloscope/1.0"}});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = await res.arrayBuffer();
+    fs.writeFileSync(dest, Buffer.from(buf));
+    console.log(`  OK HATVP: ${(buf.byteLength/1024).toFixed(1)} KB`);
+  }catch(e){
+    console.warn(`  HATVP fetch fail: ${e.message}`);
+    if(!fs.existsSync(dest)){
+      console.warn("  No cached HATVP, using empty stats");
+      return new Map(DEPARTEMENTS.map(([c])=>[c,{count:0,dia:0,dsp:0,withId:0,byType:{}}]));
+    } else {
+      console.log(`  using cached ${dest}`);
+    }
+  }
+  try{
+    const raw = fs.readFileSync(dest, "utf-8");
+    const clean = raw.charCodeAt(0)===0xFEFF ? raw.slice(1) : raw;
+    const parsed = parseCsv(clean);
+    console.log(`  HATVP rows: ${parsed.rows.length}, headers=${parsed.headers.slice(0,4).join("|")}`);
+    const stats = new Map(DEPARTEMENTS.map(([c])=>[c,{count:0,dia:0,dsp:0,withId:0,byType:{}}]));
+    let total=0, withIdTotal=0;
+    for(const r of parsed.rows){
+      const deptRaw = getField(r,"departement","Departement");
+      let code = deptRaw.toString().trim();
+      // HATVP dept can be 01, 2A/2B, 971 etc, also 099 for hors dept; normalize
+      if(!code) continue;
+      // sometimes dept is "75" or " 75 " etc
+      code = code.toUpperCase().replace(/^0+(\d)/,"$1"); // remove leading zero for 01 -> 1?
+      // but our DEPARTEMENTS keys are "01", so re-pad
+      if(/^\d+$/.test(code)){
+        if(code.length===1) code="0"+code;
+        if(code.length===2 && code!=="2A" && code!=="2B") code=code.padStart(2,"0");
+        if(code.length===3){
+          // 971 etc already 3
+        }
+      }
+      // special case 099 -> ignore (national)
+      if(code==="099" || code==="99" || code==="99A") continue;
+      // if code not in stats, try to map (e.g., 20 -> 2A/2B? ignore)
+      if(!stats.has(code)){
+        // try to normalize: if code is "20" ignore, if "75" ok
+        continue;
+      }
+      const typeDoc = getField(r,"type_document","type document");
+      const typeMandat = getField(r,"type_mandat","type mandat");
+      const idOrigine = getField(r,"id_origine","id origine");
+      const s = stats.get(code);
+      s.count++; total++;
+      if(typeDoc.toLowerCase().includes("dia")) s.dia++;
+      if(typeDoc.toLowerCase().includes("dsp")) s.dsp++;
+      if(idOrigine && idOrigine.trim() && idOrigine !=="") { s.withId++; withIdTotal++; }
+      const tm = typeMandat || "autre";
+      s.byType[tm] = (s.byType[tm]||0)+1;
+    }
+    console.log(`  HATVP stats: ${total} declarations, ${withIdTotal} avec id_origine`);
+    return stats;
+  }catch(e){
+    console.warn(`  HATVP parse fail: ${e.message}`);
+    return new Map(DEPARTEMENTS.map(([c])=>[c,{count:0,dia:0,dsp:0,withId:0,byType:{}}]));
   }
 }
 function buildDeptMapFromRows(allRowsByKey){
@@ -208,6 +275,10 @@ async function main(){
     national={totalElus:byDeptAggregates.reduce((a,b)=>a+b.totalElus,0), nationalMulti:byDeptAggregates.reduce((a,b)=>a+b.effectifCumul,0), nationalInterdit:byDeptAggregates.reduce((a,b)=>a+b.effectifInterdit,0), pctCumulLarge:28.4, pctInterdit2014:0.7};
     pivotMap=new Map();
   }
+  const hatvpStats = await fetchHatvpStats();
+  // enrich aggregated meta with HATVP totals
+  let hatvpTotal=0, hatvpWithId=0;
+  for(const s of hatvpStats.values()){ hatvpTotal+=s.count; hatvpWithId+=s.withId; }
   const timeline=generateTimeline(byDeptAggregates,national);
   const aggregated={
     meta:{
@@ -217,7 +288,7 @@ async function main(){
         "RNE - Ministere de l'Interieur (data.gouv.fr/datasets/5c34c4d1634f4173183a64f1) - 11/08/2026",
         "data.assemblee-nationale.fr (AMO historique XIe-XVIIe)",
         "data.senat.fr (ODSEN_* 1959-2026)",
-        "HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - id_origine)"
+        `HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - ${hatvpTotal} declarations, ${hatvpWithId} avec id_origine)`
       ],
       licence:"Licence Ouverte 2.0 Etalab",
       kAnonymity:K_ANONYMITY,
@@ -240,6 +311,7 @@ async function main(){
   fs.writeFileSync(path.join(PUBLIC_DATA,"timeline.json"),JSON.stringify(timeline,null,2),"utf-8");
   console.log(`\nOK aggregated.json -> ${path.join(PUBLIC_DATA,"aggregated.json")}`);
   for(const dept of byDeptAggregates){
+    const h = hatvpStats.get(dept.code) || {count:0,dia:0,dsp:0,withId:0,byType:{}};
     const shard={
       meta:{code:dept.code,libelle:dept.libelle,updated:aggregated.meta.updated,kAnonymity:K_ANONYMITY},
       aggregates:{
@@ -249,7 +321,11 @@ async function main(){
         kAnonyme:dept.kAnonyme,repartition:dept.repartition,
         comparaisonNationale:{ecartCumul:Math.round((dept.pctCumulLarge-national.pctCumulLarge)*10)/10, ecartInterdit:Math.round((dept.pctInterdit2014-national.pctInterdit2014)*10)/10}
       },
-      hatvp:{note:"HATVP: declarations disponibles via hatvp.fr/open-data/. Jointure via id_origine (PA/MAT) quand present.", urlRecherche:`https://www.hatvp.fr/consulter-les-declarations/?dept=${dept.code}`}
+      hatvp:{
+        count: h.count, dia: h.dia, dsp: h.dsp, withId: h.withId, byType: h.byType,
+        urlRecherche:`https://www.hatvp.fr/consulter-les-declarations/?dept=${dept.code}`,
+        note: h.count>0 ? `${h.count} declarations HATVP, dont ${h.withId} avec id_origine joignable` : "Aucune declaration HATVP >20k hab pour ce departement"
+      }
     };
     fs.writeFileSync(path.join(BY_DEPT,`${dept.code}.json`),JSON.stringify(shard,null,2),"utf-8");
     let nominative=[];

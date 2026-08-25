@@ -57,6 +57,16 @@ const code = Astro.params.code;
           <p class="text-[10px] text-slate-500 mt-1">cm=conseiller municipal, epci=interco, mai=maire, cd=départemental, cr=régional, dep=député, sen=sénateur</p>
         </div>
       </div>
+      <!-- HATVP enrichissement -->
+      <div id="hatvp-card" class="mt-3 p-3 rounded-xl bg-white border border-slate-200">
+        <p class="font-semibold text-sm">Transparence HATVP <span class="text-xs font-normal text-slate-500">(déclarations d'intérêts)</span></p>
+        <p id="hatvp-loading" class="text-xs text-slate-500 mt-1">Chargement…</p>
+        <div id="hatvp-content" class="hidden mt-2 text-xs">
+          <p id="hatvp-summary" class="font-mono"></p>
+          <ul id="hatvp-bytype" class="mt-1 space-y-0.5 font-mono text-[11px]"></ul>
+          <p class="mt-1 text-[10px] text-slate-500">Source: hatvp.fr/livraison/opendata/liste.csv — id_origine permet jointure RNE quand présent. <a id="hatvp-link2" href="#" target="_blank" class="underline">Voir sur HATVP</a></p>
+        </div>
+      </div>
 
       <div class="mt-3 flex flex-wrap gap-2">
         <button id="share-dept" class="px-4 py-2 rounded-full bg-cumulo-blue text-white text-sm">Partager cette carte (anonyme)</button>
@@ -132,6 +142,31 @@ const code = Astro.params.code;
     const tbody = document.getElementById('nominative-body');
     const hatvpLink = document.getElementById('hatvp-link');
     hatvpLink.href = `https://www.hatvp.fr/consulter-les-declarations/?dept=${code}`;
+    // Fetch HATVP enriched stats from shard (new enrichment)
+    fetch(base + `data/by-dept/${code}.json`)
+      .then(r=> r.ok ? r.json() : null)
+      .then(j=>{
+        if(!j || !j.hatvp) return;
+        const h=j.hatvp;
+        const loading=document.getElementById('hatvp-loading');
+        const content=document.getElementById('hatvp-content');
+        if(loading) loading.classList.add('hidden');
+        if(content) content.classList.remove('hidden');
+        const sum=document.getElementById('hatvp-summary');
+        if(sum) sum.textContent = h.count ? `${h.count} déclarations HATVP, ${h.withId} avec id_origine (${Math.round(h.withId/Math.max(1,h.count)*100)}% joignables)` : 'Aucune déclaration >20k hab pour ce département';
+        const ul=document.getElementById('hatvp-bytype');
+        if(ul){
+          ul.innerHTML='';
+          Object.entries(h.byType||{}).forEach(([k,v])=>{
+            const li=document.createElement('li'); li.className='flex justify-between border-b border-slate-100 py-0.5'; li.innerHTML=`<span>${k}</span><span>${v}</span>`; ul.appendChild(li);
+          });
+          if(Object.keys(h.byType||{}).length===0) ul.innerHTML='<li class="text-slate-500">—</li>';
+        }
+        const link2=document.getElementById('hatvp-link2');
+        if(link2) link2.href = h.urlRecherche;
+        hatvpLink.href = h.urlRecherche;
+      })
+      .catch(()=>{ const el=document.getElementById('hatvp-loading'); if(el) el.textContent='HATVP indisponible'; });
 
     // restore consent from localStorage (namespaced + path-checked)
     try{
