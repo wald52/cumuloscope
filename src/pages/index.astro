@@ -364,18 +364,21 @@ const lowCumul = [...byDept].filter(d=>!d.kAnonyme).sort((a,b)=>a.pctCumulLarge 
       renderDOM();
     });
 
-    // Timeline Chart
+    // Timeline Chart — enrichi Sénat réel
     const ctx = document.getElementById('timelineChart');
     if(ctx){
+      const hasSenat = timelineData.some(t=> t.senatReel);
+      const datasets = [
+        { label: '% cumul large (est.)', data: timelineData.map(t=>t.pctCumul), borderColor: '#0f2a44', backgroundColor: 'rgba(15,42,68,0.08)', tension: 0.3, fill: false, pointRadius: 3, borderDash:[4,3] },
+        { label: '% interdit 2014 (est.)', data: timelineData.map(t=>t.pctInterdit), borderColor: '#f2c744', backgroundColor: 'rgba(242,199,68,0.15)', tension: 0.3, fill: false, pointRadius: 3, borderDash:[4,3] }
+      ];
+      if(hasSenat){
+        datasets.push({ label: '% cumul Sénat réel', data: timelineData.map(t=> t.senatReel ? t.senatReel.pctCumul : null), borderColor:'#059669', backgroundColor:'rgba(5,150,105,0.08)', tension:0.3, fill:true, pointRadius:3, spanGaps:true });
+        datasets.push({ label: '% exec Sénat réel', data: timelineData.map(t=> t.senatReel ? t.senatReel.pctInterdit : null), borderColor:'#10b981', backgroundColor:'rgba(16,185,129,0.06)', tension:0.3, fill:false, pointRadius:2, spanGaps:true });
+      }
       new Chart(ctx, {
         type: 'line',
-        data: {
-          labels: timelineData.map(t=>t.year),
-          datasets: [
-            { label: '% cumul large', data: timelineData.map(t=>t.pctCumul), borderColor: '#0f2a44', backgroundColor: 'rgba(15,42,68,0.08)', tension: 0.3, fill: true, pointRadius: 3 },
-            { label: '% interdit 2014', data: timelineData.map(t=>t.pctInterdit), borderColor: '#f2c744', backgroundColor: 'rgba(242,199,68,0.15)', tension: 0.3, fill: true, pointRadius: 3, yAxisID: 'y' }
-          ]
-        },
+        data: { labels: timelineData.map(t=>t.year), datasets },
         options: {
           responsive: true, maintainAspectRatio: false,
           interaction: { mode: 'index', intersect: false },

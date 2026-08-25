@@ -11,6 +11,7 @@ const PUBLIC_DATA = path.join(ROOT, "public", "data");
 const BY_DEPT = path.join(PUBLIC_DATA, "by-dept");
 const CACHE_DIR = path.join(ROOT, ".cache", "rne");
 const HATVP_CACHE = path.join(ROOT, ".cache", "hatvp");
+const SENAT_CACHE = path.join(ROOT, ".cache", "senat");
 const K_ANONYMITY = 5;
 const RNE_RESOURCES = [
   { key: "ca",  id: "3b6b2281-b9d9-4959-ae9d-c2c166dff118", label: "conseillers d'arrondissement" },
@@ -27,7 +28,7 @@ const RNE_RESOURCES = [
 const DEPARTEMENTS = [
   ["01","Ain"],["02","Aisne"],["03","Allier"],["04","Alpes-de-Haute-Provence"],["05","Hautes-Alpes"],["06","Alpes-Maritimes"],["07","Ardèche"],["08","Ardennes"],["09","Ariège"],["10","Aube"],["11","Aude"],["12","Aveyron"],["13","Bouches-du-Rhône"],["14","Calvados"],["15","Cantal"],["16","Charente"],["17","Charente-Maritime"],["18","Cher"],["19","Corrèze"],["21","Côte-d'Or"],["22","Côtes-d'Armor"],["23","Creuse"],["24","Dordogne"],["25","Doubs"],["26","Drôme"],["27","Eure"],["28","Eure-et-Loir"],["29","Finistère"],["2A","Corse-du-Sud"],["2B","Haute-Corse"],["30","Gard"],["31","Haute-Garonne"],["32","Gers"],["33","Gironde"],["34","Hérault"],["35","Ille-et-Vilaine"],["36","Indre"],["37","Indre-et-Loire"],["38","Isère"],["39","Jura"],["40","Landes"],["41","Loir-et-Cher"],["42","Loire"],["43","Haute-Loire"],["44","Loire-Atlantique"],["45","Loiret"],["46","Lot"],["47","Lot-et-Garonne"],["48","Lozère"],["49","Maine-et-Loire"],["50","Manche"],["51","Marne"],["52","Haute-Marne"],["53","Mayenne"],["54","Meurthe-et-Moselle"],["55","Meuse"],["56","Morbihan"],["57","Moselle"],["58","Nièvre"],["59","Nord"],["60","Oise"],["61","Orne"],["62","Pas-de-Calais"],["63","Puy-de-Dôme"],["64","Pyrénées-Atlantiques"],["65","Hautes-Pyrénées"],["66","Pyrénées-Orientales"],["67","Bas-Rhin"],["68","Haut-Rhin"],["69","Rhône"],["70","Haute-Saône"],["71","Saône-et-Loire"],["72","Sarthe"],["73","Savoie"],["74","Haute-Savoie"],["75","Paris"],["76","Seine-Maritime"],["77","Seine-et-Marne"],["78","Yvelines"],["79","Deux-Sèvres"],["80","Somme"],["81","Tarn"],["82","Tarn-et-Garonne"],["83","Var"],["84","Vaucluse"],["85","Vendée"],["86","Vienne"],["87","Haute-Vienne"],["88","Vosges"],["89","Yonne"],["90","Territoire de Belfort"],["91","Essonne"],["92","Hauts-de-Seine"],["93","Seine-Saint-Denis"],["94","Val-de-Marne"],["95","Val-d'Oise"],["971","Guadeloupe"],["972","Martinique"],["973","Guyane"],["974","La Réunion"],["976","Mayotte"],
 ];
-function ensureDirs(){ fs.mkdirSync(PUBLIC_DATA,{recursive:true}); fs.mkdirSync(BY_DEPT,{recursive:true}); fs.mkdirSync(CACHE_DIR,{recursive:true}); fs.mkdirSync(HATVP_CACHE,{recursive:true}); }
+function ensureDirs(){ fs.mkdirSync(PUBLIC_DATA,{recursive:true}); fs.mkdirSync(BY_DEPT,{recursive:true}); fs.mkdirSync(CACHE_DIR,{recursive:true}); fs.mkdirSync(HATVP_CACHE,{recursive:true}); fs.mkdirSync(SENAT_CACHE,{recursive:true}); }
 function normalize(str){ if(!str) return ""; return str.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().trim().replace(/\s+/g," "); }
 function pivotKey(nom, prenom, dateNaissance){
   const n=normalize(nom); const p=normalize(prenom);
@@ -46,6 +47,54 @@ function parseCsv(text){
   const headers=splitCsvLine(lines[headerIdx]); const rows=[];
   for(let i=headerIdx+1;i<lines.length;i++){ const line=lines[i]; if(!line.trim()) continue; const cols=splitCsvLine(line); while(cols.length<headers.length) cols.push(""); const obj={}; headers.forEach((h,idx)=> obj[h.trim()]=(cols[idx]??"").trim().replace(/^"|"$/g,"")); rows.push(obj); }
   return {headers:headers.map(h=>h.trim()), rows};
+}
+function parseCsvSenat(text){
+  // ODSEN files are cp1252, comma separated, with % comment lines at top
+  const rawLines = text.split(/\r?\n/);
+  const lines = rawLines.filter(l=> !l.trim().startsWith('%') && l.trim().length>0);
+  if(lines.length===0) return {headers:[], rows:[]};
+  const headers = lines[0].split(',').map(h=>h.trim());
+  const rows=[];
+  for(let i=1;i<lines.length;i++){
+    const line=lines[i];
+    // simple split by comma not handling quoted commas (rare in ODSEN)
+    const cols = line.split(',');
+    while(cols.length < headers.length) cols.push("");
+    const obj={};
+    headers.forEach((h,idx)=> obj[h.trim()] = (cols[idx]??"").trim().replace(/^"|"$/g,""));
+    rows.push(obj);
+  }
+  return {headers, rows};
+}
+function parseDateSenat(s){
+  if(!s || !s.trim()) return null;
+  s=s.trim();
+  // formats: "1983-10-03 00:00:00.0" or "1989" or "30/03/2004" or "2004"
+  if(/^\d{4}-\d{2}-\d{2}/.test(s)){
+    return new Date(s.slice(0,10));
+  }
+  if(/^\d{2}\/\d{2}\/\d{4}/.test(s)){
+    const [dd,mm,yyyy]=s.split(' ')[0].split('/');
+    return new Date(`${yyyy}-${mm}-${dd}`);
+  }
+  if(/^\d{4}$/.test(s)){
+    return new Date(`${s}-06-15`);
+  }
+  // year only
+  const m = s.match(/(\d{4})/);
+  if(m) return new Date(`${m[1]}-06-15`);
+  return null;
+}
+function isActiveInYear(dateDebStr, dateFinStr, anneeDebStr, anneeFinStr, year){
+  // Check if mandate covers mid-year (July 1) of given year
+  const target = new Date(`${year}-07-01`);
+  let deb = parseDateSenat(dateDebStr) || (anneeDebStr ? new Date(`${anneeDebStr}-01-01`) : null);
+  let fin = parseDateSenat(dateFinStr) || (anneeFinStr ? new Date(`${anneeFinStr}-12-31`) : null);
+  // if both null, cannot determine -> assume not active
+  if(!deb && !fin) return false;
+  if(!deb) deb = new Date('1950-01-01');
+  if(!fin) fin = new Date('2030-12-31');
+  return target >= deb && target <= fin;
 }
 // Helper: get field by normalized header search
 function getField(row, ...candidates){
@@ -114,25 +163,14 @@ async function fetchHatvpStats(){
     for(const r of parsed.rows){
       const deptRaw = getField(r,"departement","Departement");
       let code = deptRaw.toString().trim();
-      // HATVP dept can be 01, 2A/2B, 971 etc, also 099 for hors dept; normalize
       if(!code) continue;
-      // sometimes dept is "75" or " 75 " etc
-      code = code.toUpperCase().replace(/^0+(\d)/,"$1"); // remove leading zero for 01 -> 1?
-      // but our DEPARTEMENTS keys are "01", so re-pad
+      code = code.toUpperCase().replace(/^0+(\d)/,"$1");
       if(/^\d+$/.test(code)){
         if(code.length===1) code="0"+code;
         if(code.length===2 && code!=="2A" && code!=="2B") code=code.padStart(2,"0");
-        if(code.length===3){
-          // 971 etc already 3
-        }
       }
-      // special case 099 -> ignore (national)
       if(code==="099" || code==="99" || code==="99A") continue;
-      // if code not in stats, try to map (e.g., 20 -> 2A/2B? ignore)
-      if(!stats.has(code)){
-        // try to normalize: if code is "20" ignore, if "75" ok
-        continue;
-      }
+      if(!stats.has(code)) continue;
       const typeDoc = getField(r,"type_document","type document");
       const typeMandat = getField(r,"type_mandat","type mandat");
       const idOrigine = getField(r,"id_origine","id origine");
@@ -150,6 +188,118 @@ async function fetchHatvpStats(){
     console.warn(`  HATVP parse fail: ${e.message}`);
     return new Map(DEPARTEMENTS.map(([c])=>[c,{count:0,dia:0,dsp:0,withId:0,byType:{}}]));
   }
+}
+async function fetchSenatHistorical(){
+  const SENAT_FILES = [
+    {key:"elusen", url:"https://data.senat.fr/data/senateurs/ODSEN_ELUSEN.csv", label:"mandats senatoriaux"},
+    {key:"eluvil", url:"https://data.senat.fr/data/senateurs/ODSEN_ELUVIL.csv", label:"mandats municipaux"},
+    {key:"candep", url:"https://data.senat.fr/data/senateurs/ODSEN_CANDEP.csv", label:"mandats cantonaux/departementaux"},
+    {key:"elureg", url:"https://data.senat.fr/data/senateurs/ODSEN_ELUREG.csv", label:"mandats regionaux"},
+    {key:"eleur", url:"https://data.senat.fr/data/senateurs/ODSEN_ELUEUR.csv", label:"mandats europeens"},
+    {key:"eludiv", url:"https://data.senat.fr/data/senateurs/ODSEN_ELUDIV.csv", label:"mandats divers"},
+  ];
+  console.log("-> Fetch Senat ODSEN (historique 1959-2026) ...");
+  const dataByKey = {};
+  for(const f of SENAT_FILES){
+    const dest = path.join(SENAT_CACHE, `${f.key}.csv`);
+    try{
+      const res = await fetch(f.url, {redirect:"follow"});
+      if(!res.ok) throw new Error(`HTTP ${res.status}`);
+      const buf = await res.arrayBuffer();
+      fs.writeFileSync(dest, Buffer.from(buf));
+      console.log(`  OK senat ${f.key}: ${(buf.byteLength/1024).toFixed(1)} KB`);
+    }catch(e){
+      console.warn(`  Senat ${f.key} fetch fail: ${e.message}`);
+      if(!fs.existsSync(dest)){
+        console.warn(`  No cache for ${f.key}, skip historique senat`);
+        return null;
+      } else {
+        console.log(`  using cached ${dest}`);
+      }
+    }
+    try{
+      const raw = fs.readFileSync(dest, "latin1"); // cp1252 ~ latin1
+      const parsed = parseCsvSenat(raw);
+      console.log(`   -> ${f.key}: ${parsed.rows.length} lignes`);
+      dataByKey[f.key]=parsed;
+    }catch(e){
+      console.warn(`  parse senat ${f.key} fail: ${e.message}`);
+      return null;
+    }
+  }
+  // Build maps: matricule -> array of mandates
+  const senMandats = new Map(); // mat -> [{deb, fin, anneeDeb, anneeFin}]
+  for(const r of dataByKey.elusen.rows){
+    const mat = getField(r,"Matricule","matricule");
+    if(!mat) continue;
+    // Use Annee columns when dates missing
+    const debStr = getField(r,"Date de debut de mandat","Date de debut");
+    const finStr = getField(r,"Date de fin de mandat","Date de fin");
+    const anDeb = getField(r,"Annee de debut de mandat","Annee de debut");
+    const anFin = getField(r,"Annee de fin de mandat","Annee de fin");
+    if(!senMandats.has(mat)) senMandats.set(mat, []);
+    senMandats.get(mat).push({debStr, finStr, anDeb, anFin});
+  }
+  // Other mandates grouped
+  const otherMandats = new Map(); // mat -> array of {type, fonction, debStr, finStr, anDeb, anFin}
+  function addOther(key, type){
+    for(const r of dataByKey[key].rows){
+      const mat = getField(r,"Matricule","matricule");
+      if(!mat) continue;
+      const debStr = getField(r,"Date de debut de mandat","Date de debut de fonction","Date de debut");
+      const finStr = getField(r,"Date de fin de mandat","Date de fin de fonction","Date de fin");
+      const anDeb = getField(r,"Annee de debut de mandat","Annee de debut de fonction","Annee de debut");
+      const anFin = getField(r,"Annee de fin de mandat","Annee de fin de fonction","Annee de fin");
+      const fonction = getField(r,"Fonction","fonction");
+      if(!otherMandats.has(mat)) otherMandats.set(mat, []);
+      otherMandats.get(mat).push({type, fonction, debStr, finStr, anDeb, anFin});
+    }
+  }
+  addOther("eluvil","eluvil");
+  addOther("candep","candep");
+  addOther("elureg","elureg");
+  addOther("eleur","eleur");
+  addOther("eludiv","eludiv");
+
+  const years = [1958,1965,1975,1985,1990,2000,2007,2012,2014,2017,2019,2022,2026];
+  const perYear = new Map();
+  for(const year of years){
+    let totalActive=0, cumulLarge=0, interdit=0;
+    for(const [mat, mandats] of senMandats){
+      const isSenActive = mandats.some(m=> isActiveInYear(m.debStr,m.finStr,m.anDeb,m.anFin,year));
+      if(!isSenActive) continue;
+      totalActive++;
+      const others = otherMandats.get(mat) || [];
+      const hasOther = others.some(o=> isActiveInYear(o.debStr,o.finStr,o.anDeb,o.anFin,year));
+      if(hasOther) cumulLarge++;
+      // interdit: has exec local active
+      const hasExec = others.some(o=>{
+        if(!isActiveInYear(o.debStr,o.finStr,o.anDeb,o.anFin,year)) return false;
+        const f = (o.fonction||"").toLowerCase();
+        // heuristics
+        if(o.type==="eluvil"){
+          // Maire, maire delegue, adjoint
+          return f.includes("maire") || f.includes("adjoint");
+        }
+        if(o.type==="candep"){
+          return f.includes("président") || f.includes("president") || f.includes("vice");
+        }
+        if(o.type==="elureg"){
+          return f.includes("président") || f.includes("president") || f.includes("vice");
+        }
+        if(o.type==="eleur"){
+          return true; // europe considered exec? For senat, cumul europe+senat interdit
+        }
+        return false;
+      });
+      if(hasExec) interdit++;
+    }
+    const pctCumul = totalActive ? (cumulLarge/totalActive*100) : 0;
+    const pctInterdit = totalActive ? (interdit/totalActive*100) : 0;
+    perYear.set(year, {totalActive, cumulLarge, interdit, pctCumul: Math.round(pctCumul*10)/10, pctInterdit: Math.round(pctInterdit*10)/10});
+    console.log(`  Senat ${year}: ${totalActive} actifs, ${pctCumul.toFixed(1)}% cumul, ${pctInterdit.toFixed(1)}% exec`);
+  }
+  return perYear;
 }
 function buildDeptMapFromRows(allRowsByKey){
   const pivotMap=new Map(); const deptStats=new Map();
@@ -220,7 +370,7 @@ function buildDeptMapFromRows(allRowsByKey){
   const nationalPctInterdit= nationalTotalElus ? (nationalInterdit/nationalTotalElus*100) : 0;
   return {pivotMap, byDeptAggregates, national:{totalElus:nationalTotalElus, nationalMulti, nationalInterdit, pctCumulLarge: Math.round(nationalPctCumul*10)/10, pctInterdit2014: Math.round(nationalPctInterdit*10)/10}};
 }
-function generateTimeline(byDeptAggregates, national){
+function generateTimeline(byDeptAggregates, national, senatPerYear){
   const historicalPoints=[
     {year:1958,pctCumul:68,pctInterdit:0,note:"Ve Republique, cumul illimite"},
     {year:1965,pctCumul:72,pctInterdit:0,note:""},
@@ -236,7 +386,15 @@ function generateTimeline(byDeptAggregates, national){
     {year:2022,pctCumul:32,pctInterdit:1.5,note:""},
     {year:2026,pctCumul:national.pctCumulLarge||28,pctInterdit:national.pctInterdit2014||0.9,note:"RNE 11/08/2026 (snapshot)"},
   ];
-  return historicalPoints.map(p=>({...p,couverture: p.year<1997 ? "partielle (AN/Senat seul)" : p.year<2014 ? "RNE non existant, estimation" : p.year<2019 ? "RNE partiel" : "RNE complet"}));
+  return historicalPoints.map(p=>{
+    const sen = senatPerYear ? senatPerYear.get(p.year) : null;
+    return {
+      ...p,
+      couverture: p.year<1997 ? "Senat reel (ODSEN), deputes estimation" : p.year<2014 ? "RNE non existant, estimation" : p.year<2019 ? "RNE partiel" : "RNE complet",
+      senatReel: sen ? {pctCumul: sen.pctCumul, pctInterdit: sen.pctInterdit, totalActive: sen.totalActive, cumulLarge: sen.cumulLarge, interdit: sen.interdit} : null,
+      source: sen ? "ODSEN Senat" : "estimation Vie Publique"
+    };
+  });
 }
 async function main(){
   ensureDirs();
@@ -279,7 +437,8 @@ async function main(){
   // enrich aggregated meta with HATVP totals
   let hatvpTotal=0, hatvpWithId=0;
   for(const s of hatvpStats.values()){ hatvpTotal+=s.count; hatvpWithId+=s.withId; }
-  const timeline=generateTimeline(byDeptAggregates,national);
+  const senatPerYear = await fetchSenatHistorical();
+  const timeline=generateTimeline(byDeptAggregates,national, senatPerYear);
   const aggregated={
     meta:{
       updated:"2026-08-11",

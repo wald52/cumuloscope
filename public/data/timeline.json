@@ -4,90 +4,194 @@
     "pctCumul": 68,
     "pctInterdit": 0,
     "note": "Ve Republique, cumul illimite",
-    "couverture": "partielle (AN/Senat seul)"
+    "couverture": "Senat reel (ODSEN), deputes estimation",
+    "senatReel": {
+      "pctCumul": 3.1,
+      "pctInterdit": 1.9,
+      "totalActive": 159,
+      "cumulLarge": 5,
+      "interdit": 3
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 1965,
     "pctCumul": 72,
     "pctInterdit": 0,
     "note": "",
-    "couverture": "partielle (AN/Senat seul)"
+    "couverture": "Senat reel (ODSEN), deputes estimation",
+    "senatReel": {
+      "pctCumul": 3.7,
+      "pctInterdit": 1.5,
+      "totalActive": 273,
+      "cumulLarge": 10,
+      "interdit": 4
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 1975,
     "pctCumul": 75,
     "pctInterdit": 0,
     "note": "",
-    "couverture": "partielle (AN/Senat seul)"
+    "couverture": "Senat reel (ODSEN), deputes estimation",
+    "senatReel": {
+      "pctCumul": 17.3,
+      "pctInterdit": 9.9,
+      "totalActive": 283,
+      "cumulLarge": 49,
+      "interdit": 28
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 1985,
     "pctCumul": 78,
     "pctInterdit": 0,
     "note": "Loi 30/12/1985: max 2 mandats",
-    "couverture": "partielle (AN/Senat seul)"
+    "couverture": "Senat reel (ODSEN), deputes estimation",
+    "senatReel": {
+      "pctCumul": 47,
+      "pctInterdit": 32.8,
+      "totalActive": 317,
+      "cumulLarge": 149,
+      "interdit": 104
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 1990,
     "pctCumul": 70,
     "pctInterdit": 0,
     "note": "",
-    "couverture": "partielle (AN/Senat seul)"
+    "couverture": "Senat reel (ODSEN), deputes estimation",
+    "senatReel": {
+      "pctCumul": 59.2,
+      "pctInterdit": 45.5,
+      "totalActive": 321,
+      "cumulLarge": 190,
+      "interdit": 146
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2000,
     "pctCumul": 65,
     "pctInterdit": 0,
     "note": "Loi 05/04/2000: renforce incompatibilites",
-    "couverture": "RNE non existant, estimation"
+    "couverture": "RNE non existant, estimation",
+    "senatReel": {
+      "pctCumul": 86,
+      "pctInterdit": 72.6,
+      "totalActive": 321,
+      "cumulLarge": 276,
+      "interdit": 233
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2007,
     "pctCumul": 62,
     "pctInterdit": 0,
     "note": "",
-    "couverture": "RNE non existant, estimation"
+    "couverture": "RNE non existant, estimation",
+    "senatReel": {
+      "pctCumul": 83.6,
+      "pctInterdit": 67.3,
+      "totalActive": 330,
+      "cumulLarge": 276,
+      "interdit": 222
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2012,
     "pctCumul": 58,
     "pctInterdit": 45,
     "note": "82% deputes / 77% senateurs en cumul",
-    "couverture": "RNE non existant, estimation"
+    "couverture": "RNE non existant, estimation",
+    "senatReel": {
+      "pctCumul": 82.2,
+      "pctInterdit": 66.4,
+      "totalActive": 348,
+      "cumulLarge": 286,
+      "interdit": 231
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2014,
     "pctCumul": 55,
     "pctInterdit": 42,
     "note": "Lois 14/02/2014 votees",
-    "couverture": "RNE partiel"
+    "couverture": "RNE partiel",
+    "senatReel": {
+      "pctCumul": 74.2,
+      "pctInterdit": 53.6,
+      "totalActive": 345,
+      "cumulLarge": 256,
+      "interdit": 185
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2017,
     "pctCumul": 38,
     "pctInterdit": 2.1,
     "note": "Application 2017: depute/senateur + executif local interdit",
-    "couverture": "RNE partiel"
+    "couverture": "RNE partiel",
+    "senatReel": {
+      "pctCumul": 65.7,
+      "pctInterdit": 44.7,
+      "totalActive": 347,
+      "cumulLarge": 228,
+      "interdit": 155
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2019,
     "pctCumul": 35,
     "pctInterdit": 1.8,
     "note": "Donnees territoire.fr 2019",
-    "couverture": "RNE complet"
+    "couverture": "RNE complet",
+    "senatReel": {
+      "pctCumul": 70.1,
+      "pctInterdit": 48.3,
+      "totalActive": 348,
+      "cumulLarge": 244,
+      "interdit": 168
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2022,
     "pctCumul": 32,
     "pctInterdit": 1.5,
     "note": "",
-    "couverture": "RNE complet"
+    "couverture": "RNE complet",
+    "senatReel": {
+      "pctCumul": 56.3,
+      "pctInterdit": 34.2,
+      "totalActive": 348,
+      "cumulLarge": 196,
+      "interdit": 119
+    },
+    "source": "ODSEN Senat"
   },
   {
     "year": 2026,
     "pctCumul": 13.6,
     "pctInterdit": 0.1,
     "note": "RNE 11/08/2026 (snapshot)",
-    "couverture": "RNE complet"
+    "couverture": "RNE complet",
+    "senatReel": {
+      "pctCumul": 47.3,
+      "pctInterdit": 21.8,
+      "totalActive": 165,
+      "cumulLarge": 78,
+      "interdit": 36
+    },
+    "source": "ODSEN Senat"
   }
 ]
