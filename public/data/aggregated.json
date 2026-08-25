@@ -1,12 +1,12 @@
 {
   "meta": {
     "updated": "2026-08-11",
-    "generatedAt": "2026-08-25T11:47:25.177Z",
+    "generatedAt": "2026-08-25T12:15:05.228Z",
     "sources": [
       "RNE - Ministere de l'Interieur (data.gouv.fr/datasets/5c34c4d1634f4173183a64f1) - 11/08/2026",
-      "data.assemblee-nationale.fr (AMO historique XIe-XVIIe)",
+      "data.assemblee-nationale.fr AMO30 (1997-2026, 647 deputes max)",
       "data.senat.fr (ODSEN_* 1959-2026)",
-      "HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - 10699 declarations, 4428 avec id_origine)"
+      "HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - 10699 declarations, 4428 avec id_origine; declarations.xml 6608 decla, 18146 mandatElectif)"
     ],
     "licence": "Licence Ouverte 2.0 Etalab",
     "kAnonymity": 5,
@@ -2154,6 +2154,7 @@
         "cumulLarge": 5,
         "interdit": 3
       },
+      "deputesReel": null,
       "source": "ODSEN Senat"
     },
     {
@@ -2169,6 +2170,7 @@
         "cumulLarge": 10,
         "interdit": 4
       },
+      "deputesReel": null,
       "source": "ODSEN Senat"
     },
     {
@@ -2184,6 +2186,7 @@
         "cumulLarge": 49,
         "interdit": 28
       },
+      "deputesReel": null,
       "source": "ODSEN Senat"
     },
     {
@@ -2199,6 +2202,7 @@
         "cumulLarge": 149,
         "interdit": 104
       },
+      "deputesReel": null,
       "source": "ODSEN Senat"
     },
     {
@@ -2214,6 +2218,7 @@
         "cumulLarge": 190,
         "interdit": 146
       },
+      "deputesReel": null,
       "source": "ODSEN Senat"
     },
     {
@@ -2221,7 +2226,7 @@
       "pctCumul": 65,
       "pctInterdit": 0,
       "note": "Loi 05/04/2000: renforce incompatibilites",
-      "couverture": "RNE non existant, estimation",
+      "couverture": "AMO deputes reel (1997+), RNE partiel",
       "senatReel": {
         "pctCumul": 86,
         "pctInterdit": 72.6,
@@ -2229,6 +2234,7 @@
         "cumulLarge": 276,
         "interdit": 233
       },
+      "deputesReel": null,
       "source": "ODSEN Senat"
     },
     {
@@ -2236,13 +2242,16 @@
       "pctCumul": 62,
       "pctInterdit": 0,
       "note": "",
-      "couverture": "RNE non existant, estimation",
+      "couverture": "AMO deputes reel (1997+), RNE partiel",
       "senatReel": {
         "pctCumul": 83.6,
         "pctInterdit": 67.3,
         "totalActive": 330,
         "cumulLarge": 276,
         "interdit": 222
+      },
+      "deputesReel": {
+        "totalActive": 647
       },
       "source": "ODSEN Senat"
     },
@@ -2251,13 +2260,16 @@
       "pctCumul": 58,
       "pctInterdit": 45,
       "note": "82% deputes / 77% senateurs en cumul",
-      "couverture": "RNE non existant, estimation",
+      "couverture": "AMO deputes reel (1997+), RNE partiel",
       "senatReel": {
         "pctCumul": 82.2,
         "pctInterdit": 66.4,
         "totalActive": 348,
         "cumulLarge": 286,
         "interdit": 231
+      },
+      "deputesReel": {
+        "totalActive": 631
       },
       "source": "ODSEN Senat"
     },
@@ -2266,13 +2278,16 @@
       "pctCumul": 55,
       "pctInterdit": 42,
       "note": "Lois 14/02/2014 votees",
-      "couverture": "RNE partiel",
+      "couverture": "RNE partiel + AMO",
       "senatReel": {
         "pctCumul": 74.2,
         "pctInterdit": 53.6,
         "totalActive": 345,
         "cumulLarge": 256,
         "interdit": 185
+      },
+      "deputesReel": {
+        "totalActive": 615
       },
       "source": "ODSEN Senat"
     },
@@ -2281,13 +2296,16 @@
       "pctCumul": 38,
       "pctInterdit": 2.1,
       "note": "Application 2017: depute/senateur + executif local interdit",
-      "couverture": "RNE partiel",
+      "couverture": "RNE partiel + AMO",
       "senatReel": {
         "pctCumul": 65.7,
         "pctInterdit": 44.7,
         "totalActive": 347,
         "cumulLarge": 228,
         "interdit": 155
+      },
+      "deputesReel": {
+        "totalActive": 647
       },
       "source": "ODSEN Senat"
     },
@@ -2304,6 +2322,9 @@
         "cumulLarge": 244,
         "interdit": 168
       },
+      "deputesReel": {
+        "totalActive": 634
+      },
       "source": "ODSEN Senat"
     },
     {
@@ -2319,6 +2340,9 @@
         "cumulLarge": 196,
         "interdit": 119
       },
+      "deputesReel": {
+        "totalActive": 613
+      },
       "source": "ODSEN Senat"
     },
     {
@@ -2333,6 +2357,9 @@
         "totalActive": 165,
         "cumulLarge": 78,
         "interdit": 36
+      },
+      "deputesReel": {
+        "totalActive": 581
       },
       "source": "ODSEN Senat"
     }

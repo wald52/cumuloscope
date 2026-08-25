@@ -56,6 +56,14 @@ jobs:
           restore-keys: |
             senat-
 
+      - name: Cache AMO Deputes
+        uses: actions/cache@v4
+        with:
+          path: .cache/amo
+          key: amo-${{ hashFiles('scripts/preprocess.mjs') }}
+          restore-keys: |
+            amo-
+
       - name: Build data (RNE + HATVP shards)
         run: npm run data:build
 

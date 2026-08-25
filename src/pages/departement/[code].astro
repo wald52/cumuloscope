@@ -153,7 +153,7 @@ const code = Astro.params.code;
         if(loading) loading.classList.add('hidden');
         if(content) content.classList.remove('hidden');
         const sum=document.getElementById('hatvp-summary');
-        if(sum) sum.textContent = h.count ? `${h.count} déclarations HATVP, ${h.withId} avec id_origine (${Math.round(h.withId/Math.max(1,h.count)*100)}% joignables)` : 'Aucune déclaration >20k hab pour ce département';
+        if(sum) sum.textContent = h.count ? `${h.count} déclarations HATVP, ${h.withId} avec id_origine (${Math.round(h.withId/Math.max(1,h.count)*100)}% joignables), ${h.totalMandatsElectifs||0} mandatElectif (avg ${h.avgMandatsElectifs||0})` : 'Aucune déclaration >20k hab pour ce département';
         const ul=document.getElementById('hatvp-bytype');
         if(ul){
           ul.innerHTML='';

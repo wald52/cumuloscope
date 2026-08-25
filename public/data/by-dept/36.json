@@ -40,7 +40,9 @@
       "commune": 1,
       "epci": 6
     },
+    "avgMandatsElectifs": 2.7,
+    "totalMandatsElectifs": 124,
     "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=36",
-    "note": "45 declarations HATVP, dont 18 avec id_origine joignable"
+    "note": "45 declarations HATVP, 18 avec id_origine, 124 mandatElectif (2.7 avg)"
   }
 }

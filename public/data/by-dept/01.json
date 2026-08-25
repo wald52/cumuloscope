@@ -40,7 +40,9 @@
       "commune": 2,
       "depute": 30
     },
+    "avgMandatsElectifs": 2.7,
+    "totalMandatsElectifs": 351,
     "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=01",
-    "note": "128 declarations HATVP, dont 54 avec id_origine joignable"
+    "note": "128 declarations HATVP, 54 avec id_origine, 351 mandatElectif (2.7 avg)"
   }
 }

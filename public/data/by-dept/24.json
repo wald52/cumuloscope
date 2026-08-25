@@ -40,7 +40,9 @@
       "depute": 22,
       "senateur": 15
     },
+    "avgMandatsElectifs": 2.7,
+    "totalMandatsElectifs": 255,
     "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=24",
-    "note": "93 declarations HATVP, dont 37 avec id_origine joignable"
+    "note": "93 declarations HATVP, 37 avec id_origine, 255 mandatElectif (2.7 avg)"
   }
 }

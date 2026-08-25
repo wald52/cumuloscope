@@ -27,11 +27,13 @@ const base = import.meta.env.BASE_URL;
               <span class="px-2 py-1 rounded-full bg-slate-900 text-white">{t.pctCumul}% cumul large<span class="opacity-60"> (est. nat.)</span></span>
               <span class="px-2 py-1 rounded-full bg-cumulo-accent text-slate-900">{t.pctInterdit}% interdit 2014</span>
               {t.senatReel && <span class="px-2 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-900">Sénat réel {t.senatReel.pctCumul}% <span class="opacity-60">({t.senatReel.totalActive} sén.)</span></span>}
+              {t.deputesReel && <span class="px-2 py-1 rounded-full bg-blue-100 border border-blue-200 text-blue-900">Députés {t.deputesReel.totalActive} actifs (AMO)</span>}
               {t.senatReel && <span class="px-2 py-1 rounded-full bg-emerald-50 border text-emerald-800">Sénat exec {t.senatReel.pctInterdit}%</span>}
               {t.note && <span class="px-2 py-1 rounded-full bg-white border">{t.note}</span>}
               <span class="px-2 py-1 rounded-full bg-slate-50 border text-[10px]">{t.source}</span>
             </div>
-            {t.senatReel && <p class="mt-1 text-[11px] text-emerald-700">Données ODSEN Sénat : {t.senatReel.cumulLarge}/{t.senatReel.totalActive} sénateurs en cumul, {t.senatReel.interdit} avec exécutif local actif.</p>}
+            {t.senatReel && <p class="mt-1 text-[11px] text-emerald-700">ODSEN Sénat : {t.senatReel.cumulLarge}/{t.senatReel.totalActive} sénateurs en cumul, {t.senatReel.interdit} avec exécutif.</p>}
+            {t.deputesReel && !t.senatReel && <p class="mt-1 text-[11px] text-blue-700">AMO : {t.deputesReel.totalActive} députés actifs.</p>}
             {t.year===1958 && <p class="mt-2 text-sm">1958 Constitution: aucun plafond. Le député-maire devient la norme, la France fait figure d'exception en Europe.</p>}
             {t.year===1985 && <p class="mt-2 text-sm">Lois organiques 30/12/1985: plafond 2 mandats, 1 seul exécutif local. Premier coup de frein.</p>}
             {t.year===2000 && <p class="mt-2 text-sm">Loi 05/04/2000 (Jospin): incompatibilités renforcées, déclaration obligatoire.</p>}

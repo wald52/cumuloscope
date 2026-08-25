@@ -40,7 +40,9 @@
       "epci": 66,
       "departement": 35
     },
+    "avgMandatsElectifs": 2.7,
+    "totalMandatsElectifs": 615,
     "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=06",
-    "note": "224 declarations HATVP, dont 79 avec id_origine joignable"
+    "note": "224 declarations HATVP, 79 avec id_origine, 615 mandatElectif (2.7 avg)"
   }
 }

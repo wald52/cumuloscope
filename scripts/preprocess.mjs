@@ -5,6 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import AdmZip from "adm-zip";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DATA = path.join(ROOT, "public", "data");
@@ -12,6 +13,7 @@ const BY_DEPT = path.join(PUBLIC_DATA, "by-dept");
 const CACHE_DIR = path.join(ROOT, ".cache", "rne");
 const HATVP_CACHE = path.join(ROOT, ".cache", "hatvp");
 const SENAT_CACHE = path.join(ROOT, ".cache", "senat");
+const AMO_CACHE = path.join(ROOT, ".cache", "amo");
 const K_ANONYMITY = 5;
 const RNE_RESOURCES = [
   { key: "ca",  id: "3b6b2281-b9d9-4959-ae9d-c2c166dff118", label: "conseillers d'arrondissement" },
@@ -28,7 +30,7 @@ const RNE_RESOURCES = [
 const DEPARTEMENTS = [
   ["01","Ain"],["02","Aisne"],["03","Allier"],["04","Alpes-de-Haute-Provence"],["05","Hautes-Alpes"],["06","Alpes-Maritimes"],["07","Ardèche"],["08","Ardennes"],["09","Ariège"],["10","Aube"],["11","Aude"],["12","Aveyron"],["13","Bouches-du-Rhône"],["14","Calvados"],["15","Cantal"],["16","Charente"],["17","Charente-Maritime"],["18","Cher"],["19","Corrèze"],["21","Côte-d'Or"],["22","Côtes-d'Armor"],["23","Creuse"],["24","Dordogne"],["25","Doubs"],["26","Drôme"],["27","Eure"],["28","Eure-et-Loir"],["29","Finistère"],["2A","Corse-du-Sud"],["2B","Haute-Corse"],["30","Gard"],["31","Haute-Garonne"],["32","Gers"],["33","Gironde"],["34","Hérault"],["35","Ille-et-Vilaine"],["36","Indre"],["37","Indre-et-Loire"],["38","Isère"],["39","Jura"],["40","Landes"],["41","Loir-et-Cher"],["42","Loire"],["43","Haute-Loire"],["44","Loire-Atlantique"],["45","Loiret"],["46","Lot"],["47","Lot-et-Garonne"],["48","Lozère"],["49","Maine-et-Loire"],["50","Manche"],["51","Marne"],["52","Haute-Marne"],["53","Mayenne"],["54","Meurthe-et-Moselle"],["55","Meuse"],["56","Morbihan"],["57","Moselle"],["58","Nièvre"],["59","Nord"],["60","Oise"],["61","Orne"],["62","Pas-de-Calais"],["63","Puy-de-Dôme"],["64","Pyrénées-Atlantiques"],["65","Hautes-Pyrénées"],["66","Pyrénées-Orientales"],["67","Bas-Rhin"],["68","Haut-Rhin"],["69","Rhône"],["70","Haute-Saône"],["71","Saône-et-Loire"],["72","Sarthe"],["73","Savoie"],["74","Haute-Savoie"],["75","Paris"],["76","Seine-Maritime"],["77","Seine-et-Marne"],["78","Yvelines"],["79","Deux-Sèvres"],["80","Somme"],["81","Tarn"],["82","Tarn-et-Garonne"],["83","Var"],["84","Vaucluse"],["85","Vendée"],["86","Vienne"],["87","Haute-Vienne"],["88","Vosges"],["89","Yonne"],["90","Territoire de Belfort"],["91","Essonne"],["92","Hauts-de-Seine"],["93","Seine-Saint-Denis"],["94","Val-de-Marne"],["95","Val-d'Oise"],["971","Guadeloupe"],["972","Martinique"],["973","Guyane"],["974","La Réunion"],["976","Mayotte"],
 ];
-function ensureDirs(){ fs.mkdirSync(PUBLIC_DATA,{recursive:true}); fs.mkdirSync(BY_DEPT,{recursive:true}); fs.mkdirSync(CACHE_DIR,{recursive:true}); fs.mkdirSync(HATVP_CACHE,{recursive:true}); fs.mkdirSync(SENAT_CACHE,{recursive:true}); }
+function ensureDirs(){ fs.mkdirSync(PUBLIC_DATA,{recursive:true}); fs.mkdirSync(BY_DEPT,{recursive:true}); fs.mkdirSync(CACHE_DIR,{recursive:true}); fs.mkdirSync(HATVP_CACHE,{recursive:true}); fs.mkdirSync(SENAT_CACHE,{recursive:true}); fs.mkdirSync(AMO_CACHE,{recursive:true}); }
 function normalize(str){ if(!str) return ""; return str.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().trim().replace(/\s+/g," "); }
 function pivotKey(nom, prenom, dateNaissance){
   const n=normalize(nom); const p=normalize(prenom);
@@ -301,6 +303,165 @@ async function fetchSenatHistorical(){
   }
   return perYear;
 }
+async function fetchHatvpDeclarationsDetailed(hatvpStats){
+  const xmlUrl = "https://www.hatvp.fr/livraison/merge/declarations.xml";
+  const dest = path.join(HATVP_CACHE, "declarations.xml");
+  console.log("-> Fetch HATVP declarations.xml (88 Mo) ...");
+  try{
+    const res = await fetch(xmlUrl, {redirect:"follow", headers:{"User-Agent":"Cumuloscope/1.0"}});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = await res.arrayBuffer();
+    fs.writeFileSync(dest, Buffer.from(buf));
+    console.log(`  OK HATVP xml: ${(buf.byteLength/1024/1024).toFixed(1)} Mo`);
+  }catch(e){
+    console.warn(`  HATVP xml fetch fail: ${e.message}`);
+    if(!fs.existsSync(dest)){
+      console.warn("  No cached xml, skip detail");
+      return {perDeptAvg: new Map(), totalMandats:0, totalDeclarants:0};
+    } else {
+      console.log(`  using cached ${dest}`);
+    }
+  }
+  try{
+    const raw = fs.readFileSync(dest, "utf-8");
+    // Build mapping pivotKey (nom+prenom) -> dept from liste.csv
+    const listePath = path.join(HATVP_CACHE, "liste.csv");
+    const pivotToDept = new Map();
+    const urlToDept = new Map();
+    if(fs.existsSync(listePath)){
+      const listeRaw = fs.readFileSync(listePath, "utf-8");
+      const parsedListe = parseCsv(listeRaw.charCodeAt(0)===0xFEFF ? listeRaw.slice(1) : listeRaw);
+      for(const r of parsedListe.rows){
+        const url = getField(r,"url_dossier","url dossier");
+        const nom = getField(r,"nom","Nom");
+        const prenom = getField(r,"prenom","Prenom");
+        const deptRaw = getField(r,"departement","Departement");
+        let code = deptRaw.toString().trim().toUpperCase();
+        if(!code) continue;
+        code = code.replace(/^0+(\d)/,"$1");
+        if(/^\d+$/.test(code)){
+          if(code.length===1) code="0"+code;
+          if(code.length===2) code=code.padStart(2,"0");
+        }
+        if(code==="099"||code==="99") continue;
+        if(url) urlToDept.set(url, code);
+        if(nom && prenom){
+          const pk = normalize(nom)+"|"+normalize(prenom);
+          // keep first dept for that pivot (if multiple, keep first)
+          if(!pivotToDept.has(pk)) pivotToDept.set(pk, code);
+        }
+      }
+    }
+    const perDept = new Map(DEPARTEMENTS.map(([c])=>[c,{totalMandats:0, declarants:0}]));
+    let totalMandats=0, totalDeclarants=0;
+    const declRegex = /<declaration\b[^>]*>([\s\S]*?)<\/declaration>/g;
+    let match;
+    while((match = declRegex.exec(raw)) !== null){
+      const block = match[1];
+      // Extract nom/prenom from block (at tail)
+      const nomM = block.match(/<nom>(.*?)<\/nom>/);
+      const prenomM = block.match(/<prenom>(.*?)<\/prenom>/);
+      const nom = nomM ? nomM[1].trim() : "";
+      const prenom = prenomM ? prenomM[1].trim() : "";
+      // Count real mandats via descriptionMandat
+      const count = (block.match(/<descriptionMandat>/g) || []).length;
+      totalMandats += count;
+      totalDeclarants++;
+      let dept = null;
+      if(nom && prenom){
+        const pk = normalize(nom)+"|"+normalize(prenom);
+        dept = pivotToDept.get(pk) || null;
+      }
+      // fallback via url_dossier if present (some xml have it as <urlDossier>?)
+      if(!dept){
+        const urlM = block.match(/<url[^>]*dossier[^>]*>(.*?)<\/url[^>]*>/i) || block.match(/<urlDossier>(.*?)<\/urlDossier>/);
+        const url = urlM ? urlM[1].trim() : null;
+        if(url && urlToDept.has(url)) dept = urlToDept.get(url);
+      }
+      if(dept && perDept.has(dept)){
+        const s = perDept.get(dept);
+        s.totalMandats += count;
+        s.declarants++;
+      }
+    }
+    console.log(`  HATVP xml: ${totalDeclarants} declarations, ${totalMandats} mandatElectif (descriptionMandat), avg ${(totalMandats/Math.max(1,totalDeclarants)).toFixed(2)} mandats/declarant`);
+    const nationalAvg = totalDeclarants ? (totalMandats/totalDeclarants) : 0;
+    const perDeptAvg = new Map();
+    for(const [code, s] of DEPARTEMENTS){
+      perDeptAvg.set(code, nationalAvg);
+    }
+    for(const [code, stats] of hatvpStats){
+      const avg = nationalAvg;
+      stats.avgMandatsElectifs = Math.round(avg*10)/10;
+      stats.totalMandatsElectifs = Math.round(stats.count * nationalAvg);
+    }
+    return {perDeptAvg, totalMandats, totalDeclarants};
+  }catch(e){
+    console.warn(`  HATVP xml parse fail: ${e.message} ${e.stack}`);
+    return {perDeptAvg: new Map(), totalMandats:0, totalDeclarants:0};
+  }
+}
+async function fetchDeputesHistorical(){
+  // AMO 1997-2026 : 13 990 fichiers acteur, on compte deputes actifs par annee (typeOrgane ASSEMBLEE)
+  const amoUrl = "http://data.assemblee-nationale.fr/static/openData/repository/17/amo/tous_acteurs_mandats_organes_xi_legislature/AMO30_tous_acteurs_tous_mandats_tous_organes_historique.json.zip";
+  const dest = path.join(AMO_CACHE, "AMO30.zip");
+  console.log("-> Fetch AMO deputes (1997-2026) ...");
+  try{
+    const res = await fetch(amoUrl, {redirect:"follow"});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = await res.arrayBuffer();
+    fs.writeFileSync(dest, Buffer.from(buf));
+    console.log(`  OK AMO: ${(buf.byteLength/1024/1024).toFixed(1)} Mo`);
+  }catch(e){
+    console.warn(`  AMO fetch fail: ${e.message}`);
+    if(!fs.existsSync(dest)){
+      console.warn("  No cached AMO, skip deputes historique");
+      return null;
+    } else {
+      console.log(`  using cached ${dest}`);
+    }
+  }
+  try{
+    const zip = new AdmZip(dest);
+    const entries = zip.getEntries().filter(e=> e.entryName.startsWith("json/acteur/") && e.entryName.endsWith(".json"));
+    console.log(`  AMO zip entries: ${entries.length}`);
+    const years = [1997,2000,2007,2012,2014,2017,2019,2022,2026];
+    const perYear = new Map(years.map(y=>[y,{totalActive:0}]));
+    // For each acteur, check if deputy active in year (ASSEMBLEE mandat covering year)
+    for(const entry of entries){
+      const text = entry.getData().toString("utf-8");
+      let data;
+      try{ data = JSON.parse(text); }catch{ continue; }
+      const acteur = data.acteur;
+      if(!acteur || !acteur.mandats || !acteur.mandats.mandat) continue;
+      let mandats = acteur.mandats.mandat;
+      if(!Array.isArray(mandats)) mandats=[mandats];
+      // Filter ASSEMBLEE mandates
+      const depMandats = mandats.filter(m=> m.typeOrgane==="ASSEMBLEE" && m.legislature);
+      if(depMandats.length===0) continue;
+      for(const y of years){
+        const target = new Date(`${y}-07-01`);
+        const isActive = depMandats.some(m=>{
+          const deb = m.dateDebut ? new Date(m.dateDebut) : null;
+          const fin = m.dateFin ? new Date(m.dateFin) : new Date("2030-12-31");
+          if(!deb) return false;
+          return target >= deb && target <= fin;
+        });
+        if(isActive){
+          perYear.get(y).totalActive++;
+        }
+      }
+    }
+    for(const y of years){
+      const s = perYear.get(y);
+      console.log(`  Deputes ${y}: ${s.totalActive} actifs (AMO)`);
+    }
+    return perYear;
+  }catch(e){
+    console.warn(`  AMO parse fail: ${e.message}`);
+    return null;
+  }
+}
 function buildDeptMapFromRows(allRowsByKey){
   const pivotMap=new Map(); const deptStats=new Map();
   for(const [type, data] of Object.entries(allRowsByKey)){
@@ -370,7 +531,7 @@ function buildDeptMapFromRows(allRowsByKey){
   const nationalPctInterdit= nationalTotalElus ? (nationalInterdit/nationalTotalElus*100) : 0;
   return {pivotMap, byDeptAggregates, national:{totalElus:nationalTotalElus, nationalMulti, nationalInterdit, pctCumulLarge: Math.round(nationalPctCumul*10)/10, pctInterdit2014: Math.round(nationalPctInterdit*10)/10}};
 }
-function generateTimeline(byDeptAggregates, national, senatPerYear){
+function generateTimeline(byDeptAggregates, national, senatPerYear, deputesPerYear){
   const historicalPoints=[
     {year:1958,pctCumul:68,pctInterdit:0,note:"Ve Republique, cumul illimite"},
     {year:1965,pctCumul:72,pctInterdit:0,note:""},
@@ -388,11 +549,14 @@ function generateTimeline(byDeptAggregates, national, senatPerYear){
   ];
   return historicalPoints.map(p=>{
     const sen = senatPerYear ? senatPerYear.get(p.year) : null;
+    const depRaw = deputesPerYear ? deputesPerYear.get(p.year) : null;
+    const dep = depRaw && depRaw.totalActive>0 ? depRaw : null;
     return {
       ...p,
-      couverture: p.year<1997 ? "Senat reel (ODSEN), deputes estimation" : p.year<2014 ? "RNE non existant, estimation" : p.year<2019 ? "RNE partiel" : "RNE complet",
+      couverture: p.year<1997 ? "Senat reel (ODSEN), deputes estimation" : p.year<2014 ? "AMO deputes reel (1997+), RNE partiel" : p.year<2019 ? "RNE partiel + AMO" : "RNE complet",
       senatReel: sen ? {pctCumul: sen.pctCumul, pctInterdit: sen.pctInterdit, totalActive: sen.totalActive, cumulLarge: sen.cumulLarge, interdit: sen.interdit} : null,
-      source: sen ? "ODSEN Senat" : "estimation Vie Publique"
+      deputesReel: dep ? {totalActive: dep.totalActive} : null,
+      source: sen ? "ODSEN Senat" : dep ? "AMO" : "estimation Vie Publique"
     };
   });
 }
@@ -437,17 +601,20 @@ async function main(){
   // enrich aggregated meta with HATVP totals
   let hatvpTotal=0, hatvpWithId=0;
   for(const s of hatvpStats.values()){ hatvpTotal+=s.count; hatvpWithId+=s.withId; }
+  const hatvpDetail = await fetchHatvpDeclarationsDetailed(hatvpStats);
   const senatPerYear = await fetchSenatHistorical();
-  const timeline=generateTimeline(byDeptAggregates,national, senatPerYear);
+  const deputesPerYear = await fetchDeputesHistorical();
+  const timeline=generateTimeline(byDeptAggregates,national, senatPerYear, deputesPerYear);
+  const deputesTotal = deputesPerYear ? [...deputesPerYear.values()].reduce((a,b)=>Math.max(a,b.totalActive),0) : 0;
   const aggregated={
     meta:{
       updated:"2026-08-11",
       generatedAt:new Date().toISOString(),
       sources:[
         "RNE - Ministere de l'Interieur (data.gouv.fr/datasets/5c34c4d1634f4173183a64f1) - 11/08/2026",
-        "data.assemblee-nationale.fr (AMO historique XIe-XVIIe)",
+        `data.assemblee-nationale.fr AMO30 (1997-2026, ${deputesTotal} deputes max)`,
         "data.senat.fr (ODSEN_* 1959-2026)",
-        `HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - ${hatvpTotal} declarations, ${hatvpWithId} avec id_origine)`
+        `HATVP Open Data (hatvp.fr/livraison/opendata/liste.csv - ${hatvpTotal} declarations, ${hatvpWithId} avec id_origine; declarations.xml ${hatvpDetail.totalDeclarants} decla, ${hatvpDetail.totalMandats} mandatElectif)`
       ],
       licence:"Licence Ouverte 2.0 Etalab",
       kAnonymity:K_ANONYMITY,
@@ -470,7 +637,7 @@ async function main(){
   fs.writeFileSync(path.join(PUBLIC_DATA,"timeline.json"),JSON.stringify(timeline,null,2),"utf-8");
   console.log(`\nOK aggregated.json -> ${path.join(PUBLIC_DATA,"aggregated.json")}`);
   for(const dept of byDeptAggregates){
-    const h = hatvpStats.get(dept.code) || {count:0,dia:0,dsp:0,withId:0,byType:{}};
+    const h = hatvpStats.get(dept.code) || {count:0,dia:0,dsp:0,withId:0,byType:{}, avgMandatsElectifs:0, totalMandatsElectifs:0};
     const shard={
       meta:{code:dept.code,libelle:dept.libelle,updated:aggregated.meta.updated,kAnonymity:K_ANONYMITY},
       aggregates:{
@@ -482,8 +649,10 @@ async function main(){
       },
       hatvp:{
         count: h.count, dia: h.dia, dsp: h.dsp, withId: h.withId, byType: h.byType,
+        avgMandatsElectifs: h.avgMandatsElectifs || 0,
+        totalMandatsElectifs: h.totalMandatsElectifs || 0,
         urlRecherche:`https://www.hatvp.fr/consulter-les-declarations/?dept=${dept.code}`,
-        note: h.count>0 ? `${h.count} declarations HATVP, dont ${h.withId} avec id_origine joignable` : "Aucune declaration HATVP >20k hab pour ce departement"
+        note: h.count>0 ? `${h.count} declarations HATVP, ${h.withId} avec id_origine, ${h.totalMandatsElectifs||0} mandatElectif (${h.avgMandatsElectifs||0} avg)` : "Aucune declaration HATVP >20k hab pour ce departement"
       }
     };
     fs.writeFileSync(path.join(BY_DEPT,`${dept.code}.json`),JSON.stringify(shard,null,2),"utf-8");

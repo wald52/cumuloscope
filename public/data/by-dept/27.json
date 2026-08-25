@@ -40,7 +40,9 @@
       "commune": 1,
       "senateur": 17
     },
+    "avgMandatsElectifs": 2.7,
+    "totalMandatsElectifs": 275,
     "urlRecherche": "https://www.hatvp.fr/consulter-les-declarations/?dept=27",
-    "note": "100 declarations HATVP, dont 40 avec id_origine joignable"
+    "note": "100 declarations HATVP, 40 avec id_origine, 275 mandatElectif (2.7 avg)"
   }
 }
